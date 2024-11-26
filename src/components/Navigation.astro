@@ -3,16 +3,43 @@
 ---
 
 <nav class="nav-bar">
-    
+	<a class="nav-button" href="#about">Sobre mí</a>
+	<a class="nav-button" href="#projects">Proyectos</a>
 </nav>
 
 <style>
 	.nav-bar {
+		position: fixed;
+
 		height: 60px;
 		width: 100%;
 
 		background-color: #00ff4010;
-        box-shadow: inset 0 0 10px var(--md-primary);
+		box-shadow: inset 0 0 10px var(--md-primary);
 		border-bottom: solid var(--md-primary) 1px;
+
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.nav-button {
+		color: var(--md-primary);
+		text-decoration: none;
+		padding: 10px 20px;
+		border: 1px solid var(--md-primary);
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
+	}
+
+	.nav-button:last-child {
+		margin-right: 20px;
+	}
+
+	.nav-button:hover {
+		background-color: var(--md-primary);
+		color: var(--md-on-primary);
 	}
 </style>

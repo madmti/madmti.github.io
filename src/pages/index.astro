@@ -12,20 +12,21 @@ import { HEIGTH } from '../public.env.d';
 	<CrtEffect heigth=`${HEIGTH}px` />
 	<Navigation />
 	<main class="cont-port">
-		<h1>Sobre mi</h1>
+		<h1 id="about">Sobre mi</h1>
 		<section class="profile-sect">
 			<GitHubProfile width="200px" height="200px" />
 			<div class="profile-desc">
 				<h2>Desarrollador</h2>
 				<p class="limited-text">
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo,
-					commodi. Tempore soluta enim, molestiae, vero voluptas ipsum
-					reprehenderit distinctio culpa quaerat tempora consequuntur. Officia
-					pariatur laudantium, earum quas eligendi minus!
+					Soy estudiante de Ingeniería Civil Informática en la Universidad
+					Técnica Federico Santa María (USM), actualmente terminando mi segundo
+					año. Me apasiona la tecnología y el desarrollo de software, con un
+					enfoque en crear aplicaciones que simplifiquen y automaticen procesos,
+					además de diseñar páginas web dinámicas y funcionales.
 				</p>
 			</div>
 		</section>
-		<h1>Proyectos</h1>
+		<h1 id="projects">Proyectos</h1>
 		<section>
 			<ul class="project-list">
 				<ProjectCard
@@ -68,8 +69,16 @@ import { HEIGTH } from '../public.env.d';
 		}
 	}
 
+	#about {
+		padding-top: 100px;
+	}
+
+	#projects {
+		padding-top: 100px;
+	}
+
 	.profile-sect {
-		padding: 80px 10px;
+		justify-content: center;
 	}
 
 	section {
