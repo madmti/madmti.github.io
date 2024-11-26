@@ -2,6 +2,7 @@
 interface Props {
 	title: string;
 }
+import { HEIGTH } from '../public.env.d';
 
 const { title } = Astro.props;
 ---
@@ -9,9 +10,12 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -24,7 +28,7 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
+<style is:global define:vars={{ hh: HEIGTH }}>
 	:root {
 		/* Primary Colors */
 		--md-primary: #00ff41;
@@ -46,22 +50,34 @@ const { title } = Astro.props;
 		--md-surface: #121212;
 		--md-on-surface: #00ff41;
 	}
-	html, body {
-		height: 100vh;
-		width: 100vw;
 
-		margin: 0;
-		padding: 0;
-				
-		display: flex;
-		justify-content: center;
-
-		font-family: "Source Code Pro", monospace;
+	* {
+		font-family: 'Source Code Pro', monospace;
 		font-optical-sizing: auto;
 		font-weight: 400;
 		font-style: normal;
+	}
+
+	html,
+	body {
+		height: var(--hh) px;
+		width: 100%;
+
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
 		color: var(--md-on-surface);
-  		background-color: var(--md-surface);
+		background-color: var(--md-surface);
+
+		scroll-behavior: smooth;
 	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
 </style>
