@@ -1,29 +1,104 @@
 ---
-import GithubLink from '../components/GithubLink.astro';
+import CrtEffect from '../components/CrtEffect.astro';
+import GitHubProfile from '../components/GitHubProfile.astro';
+import Navigation from '../components/Navigation.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import Layout from '../layouts/Layout.astro';
+
+import { HEIGTH } from '../public.env.d';
 ---
 
 <Layout title="Portafolio">
-	<main>
-		<h1>😅 Aun en desarrollo..</h1>
-		<p>Mientras puedes visitar mi perfil de Github</p>
-		<GithubLink />
+	<CrtEffect heigth=`${HEIGTH}px` />
+	<Navigation />
+	<main class="cont-port">
+		<h1>Sobre mi</h1>
+		<section class="profile-sect">
+			<GitHubProfile width="200px" height="200px" />
+			<div class="profile-desc">
+				<h2>Desarrollador</h2>
+				<p class="limited-text">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo,
+					commodi. Tempore soluta enim, molestiae, vero voluptas ipsum
+					reprehenderit distinctio culpa quaerat tempora consequuntur. Officia
+					pariatur laudantium, earum quas eligendi minus!
+				</p>
+			</div>
+		</section>
+		<h1>Proyectos</h1>
+		<section>
+			<ul class="project-list">
+				<ProjectCard
+					title="Room Track"
+					description="Aplicación diseñada para facilitar la búsqueda de salas, edificios y otros lugares dentro de la Universidad Técnica Federico Santa María (USM)."
+					icon="https://avatars.githubusercontent.com/u/184432680?s=200&v=4"
+					link="https://github.com/Room-Track"
+					technologies={[
+						{
+							name: 'Flutter',
+							icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTU4LjUiIHZpZXdCb3g9IjAgMCAyNTYgMzE3Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE5MzY2MjcxNDJmMjIwY2JmMSIgeDE9IjMuOTUyJSIgeDI9Ijc1Ljg5NyUiIHkxPSIyNi45OTMlIiB5Mj0iNTIuOTE5JSI+PHN0b3Agb2Zmc2V0PSIwJSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZmlsbD0iIzQ3QzVGQiIgZD0iTTE1Ny42NjYuMDAxTC4wMDEgMTU3LjY2Nmw0OC44IDQ4LjhMMjU1LjI2OC4wMDF6bS0xLjA5OSAxNDUuMzk2bC04NC40MTggODQuNDE4bDQ4Ljk4NCA0OS43MTZsNDguNzEtNDguNzFsODUuNDI1LTg1LjQyNHoiLz48cGF0aCBmaWxsPSIjMDA1NjlFIiBkPSJtMTIxLjEzMyAyNzkuNTMxbDM3LjA4MiAzNy4wODJoOTcuMDUybC04NS40MjUtODUuNzkyeiIvPjxwYXRoIGZpbGw9IiMwMEI1RjgiIGQ9Im03MS42IDIzMC4zNjRsNDguODAxLTQ4LjgwMWw0OS40NDEgNDkuMjU4bC00OC43MDkgNDguNzF6Ii8+PHBhdGggZmlsbD0idXJsKCNJY29uaWZ5SWQxOTM2NjI3MTQyZjIyMGNiZjEpIiBmaWxsLW9wYWNpdHk9Ii44IiBkPSJtMTIxLjEzMyAyNzkuNTMxbDQwLjU2LTEzLjQ1OWw0LjAyOS0zMS4xMzF6Ii8+PC9zdmc+',
+							link: 'https://flutter.dev/',
+						},
+						{
+							name: 'Express',
+							icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNDN0NERDciIGQ9Ik0yNCAxOC41ODhhMS41MyAxLjUzIDAgMCAxLTEuODk1LS43MmwtMy40NS00Ljc3MWwtLjUtLjY2N2wtNC4wMDMgNS40NDRhMS40NjYgMS40NjYgMCAwIDEtMS44MDIuNzA4bDUuMTU4LTYuOTJsLTQuNzk4LTYuMjUxYTEuNTk1IDEuNTk1IDAgMCAxIDEuOS42NjZsMy41NzYgNC44M2wzLjU5Ni00LjgxYTEuNDM1IDEuNDM1IDAgMCAxIDEuNzg4LS42NjhMMjEuNzA4IDcuOWwtMi41MjIgMy4yODNhLjY2Ni42NjYgMCAwIDAgMCAuOTk0bDQuODA0IDYuNDEyek0uMDAyIDExLjU3NmwuNDItMi4wNzVjMS4xNTQtNC4xMDMgNS44NTgtNS44MSA5LjA5NC0zLjI3YzEuODk1IDEuNDg5IDIuMzY4IDMuNTk3IDIuMjc1IDUuOTczSDEuMTE2Qy45NDMgMTYuNDQ3IDQuMDA1IDE5LjAwOSA3LjkyIDE3LjdhNC4wOCA0LjA4IDAgMCAwIDIuNTgyLTIuODc2Yy4yMDctLjY2Ni41NDgtLjc4IDEuMTc0LS41ODhhNS40MiA1LjQyIDAgMCAxLTIuNTg5IDMuOTU3YTYuMjcgNi4yNyAwIDAgMS03LjMwNi0uOTMzYTYuNTggNi41OCAwIDAgMS0xLjY0LTMuODU4YzAtLjIzNS0uMDgtLjQ1NS0uMTM0LS42NjZBODggODggMCAwIDEgMCAxMS41Nzd6bTEuMTI3LS4yODZoOS42NTRjLS4wNi0zLjA3Ni0yLjAwMS01LjI1OC00LjU5LTUuMjc4Yy0yLjg4Mi0uMDQtNC45NDQgMi4wOTQtNS4wNzEgNS4yNjR6Ii8+PC9zdmc+',
+							link: 'https://expressjs.com/',
+						},
+						{
+							name: 'Cosmos DB',
+							icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiM1OUIzRDgiIGQ9Ik0xMDUuODI1IDU4LjYzNWM1LjQ5MSAyMi40NDktOC40NTggNDUuMDQ5LTMxLjE1NiA1MC40OGMtMjIuNjk1IDUuNDI5LTQ1LjU0Ny04LjM2NS01MS4wMzYtMzAuODE1Yy01LjQ5Mi0yMi40NDkgOC40NTgtNDUuMDQ5IDMxLjE1My01MC40OGwuMDc4LS4wMThjMjIuNTg4LTUuNDYgNDUuMzc0IDguMjIzIDUwLjg5NiAzMC41NjV6Ii8+PHBhdGggZmlsbD0iI0I2REVFQyIgZD0iTTU4Ljc0NyA4NS4xOTRjLS4wMTMtNi4xMzctNS4wNTUtMTEuMS0xMS4yNTktMTEuMDg1aC0xLjcwMWMxLjQ0Mi01LjkzMi0yLjI0OC0xMS44OTUtOC4yNDYtMTMuMzIyYTExLjIgMTEuMiAwIDAgMC0yLjcwMy0uMzA2SDIzLjE2MmMtMi41MjUgMTIuODUxIDEuMjQ2IDI2LjEyNyAxMC4xNzQgMzUuNzk2aDE0LjE0OWM2LjIwNS4wMTUgMTEuMjQ3LTQuOTQ4IDExLjI2Mi0xMS4wODNNNzIuNjkgMzkuMjMzYzAgLjY0OS4wODUgMS4yOTYuMjU1IDEuOTI1aC00Ljg2MWMtNi40NDUgMC0xMS42NjcgNS4xNjgtMTEuNjY3IDExLjU0M2MwIDYuMzcyIDUuMjIyIDExLjU0IDExLjY2NyAxMS41NGgzOC42NDVjLTEuMjU4LTEzLjc4Ny05LjQ4Ni0yNi4wMS0yMS44NjItMzIuNDc3aC00LjYwNWMtNC4xNzctLjAwMi03LjU2MiAzLjMzOS03LjU3MiA3LjQ2OW0zNC4wNDMgMzMuNTg3SDgzLjY3OWMtNS4yNTktLjAxMy05LjUzMSA0LjE4Ny05LjU1MiA5LjM4NWE5LjI0IDkuMjQgMCAwIDAgMS4xNDggNC40NzFjLTUuMDAzIDEuNTQ2LTcuNzkyIDYuODE0LTYuMjI4IDExLjc2NWMxLjI0MiAzLjkzNCA0LjkzOCA2LjYwNyA5LjEwNiA2LjU4OWg2LjQyN2MxMi4zMTQtNi40NTQgMjAuNjA3LTE4LjUxIDIyLjE1My0zMi4yMSIvPjxwYXRoIGZpbGw9IiNCN0QzMzIiIGQ9Ik0xNy4zODIgNDAuNjI0YTEuMjg2IDEuMjg2IDAgMCAxLTEuMy0xLjI3NXYtLjAwM2MtLjAyMS04LjA2NC02LjYzNy0xNC41ODctMTQuNzktMTQuNTc5QTEuMjg2IDEuMjg2IDAgMCAxIDAgMjMuNDg5YzAtLjcwMy41NzktMS4yNzUgMS4yOTItMS4yNzVjOC4xNDMuMDA3IDE0Ljc1Ni02LjUwMyAxNC43OS0xNC41NTRhMS4yOSAxLjI5IDAgMCAxIDEuMzU2LTEuMjI3Yy42NzIuMDI4IDEuMjEuNTYgMS4yNDEgMS4yMjdjLjAyMSA4LjA2MSA2LjYzOSAxNC41ODQgMTQuNzkyIDE0LjU3N2MuNzEzIDAgMS4yOTIuNTcyIDEuMjkyIDEuMjc3YzAgLjcwNi0uNTc5IDEuMjc5LTEuMjkyIDEuMjc5Yy04LjE0OC0uMDExLTE0Ljc2NiA2LjUwNy0xNC43OTIgMTQuNTY2Yy0uMDEuNy0uNTg5IDEuMjY1LTEuMjk3IDEuMjY1Ii8+PHBhdGggZmlsbD0iIzAwNzJDNSIgZD0iTTEwOC42IDEyMi43OTNhLjc2NC43NjQgMCAwIDEtLjc2OC0uNzU5Yy0uMDE4LTQuODIxLTMuOTgtOC43MTktOC44NTQtOC43MDlhLjc2Ljc2IDAgMCAxLS43Ny0uNzU2YzAtLjQxOS4zNDItLjc1OS43NjUtLjc1OWguMDA1YzQuODcyLjAwMiA4LjgyNi0zLjg5MyA4Ljg0NC04LjcxMWEuNzcuNzcgMCAwIDEgLjc3OC0uNzY3YS43Ny43NyAwIDAgMSAuNzc1Ljc2N2MuMDE4IDQuODE4IDMuOTcyIDguNzEzIDguODQzIDguNzExYS43Ni43NiAwIDAgMSAuNzcuNzU2YS43Ni43NiAwIDAgMS0uNzY1Ljc1OWgtLjAwNWMtNC44NzEtLjAwMi04LjgyOCAzLjg5My04Ljg0MyA4LjcxNGEuNzY0Ljc2NCAwIDAgMS0uNzczLjc1NHoiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTI2LjMxNyAzMC44NGMtNC4wMzUtNi41MzktMTQuMTc1LTguMDQ5LTI5LjMwNi00LjM4NGExMjIgMTIyIDAgMCAwLTEzLjg5MyA0LjM4NGE0Mi44IDQyLjggMCAwIDEgOC4xODcgNS4xNzNjMi41NzQtLjgzNiA1LjEwMS0xLjU5IDcuNTEyLTIuMTczYTUzLjMgNTMuMyAwIDAgMSAxMi4zMzUtMS43MjdjNC45NTcgMCA3LjY5MSAxLjIxMSA4LjYwNiAyLjY4NmMxLjQ5NiAyLjQyMy4xMTkgOC44MTYtOC42ODEgMTguODcxYy0xLjU2NiAxLjc4OS0zLjMyNiAzLjYwMS01LjE3OSA1LjQyM2ExNzYgMTc2IDAgMCAxLTMxLjg0MyAyNC4xNDlhMTc2IDE3NiAwIDAgMS0zNi4zMjkgMTcuMTA1Yy0xNS4zMTcgNC45MzYtMjUuNzczIDQuODM2LTI4LjExOSAxLjA0OGMtMi4zNDItMy43ODggMi4zNDQtMTMuMDQ4IDEzLjc3Ni0yNC4yOWE0MSA0MSAwIDAgMS0uOTM4LTkuNzM1Yy0xOC4yIDE2LjI3MS0yNC4wOSAzMC4zNjUtMTkuMzg3IDM3Ljk4MWMyLjQ2MyAzLjk4NSA3Ljg0NCA2LjIyOSAxNS43MDUgNi4yMjlhODAuOCA4MC44IDAgMCAwIDI3LjE4My01LjkzMmExOTQuNyAxOTQuNyAwIDAgMCAzMi4xMS0xNS45MjZhMTkzLjQgMTkzLjQgMCAwIDAgMjguODg0LTIxLjE0OGExMTkgMTE5IDAgMCAwIDkuOTQ3LTkuOTQxYzEwLjIwNy0xMS42NTUgMTMuNDY2LTIxLjI2OCA5LjQzLTI3Ljc5MyIvPjwvZz48L3N2Zz4=',
+							link: 'https://azure.microsoft.com/en-us/products/cosmos-db/',
+						},
+					]}
+				/>
+			</ul>
+		</section>
 	</main>
 </Layout>
 
-<style>
-	main {
-		height: 100vh;
-		width: 100%;
-		margin-left: 20%;
-		margin-right: 20%;
+<style define:vars={{ hh: HEIGTH }}>
+	@media (width <= 900px) {
+		.cont-port {
+			width: 90vw;
+		}
+	}
+	@media (width > 900px) {
+		.cont-port {
+			width: 70vw;
+		}
+	}
+
+	.profile-sect {
+		padding: 80px 10px;
+	}
+
+	section {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.limited-text {
+		max-width: 60ch;
+	}
+
+	.profile-desc {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.cont-port {
+		height: var(--hh) px;
 
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 	}
-	.gh-link {
-		text-decoration: none;
+
+	.project-list {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 50px;
+		width: 100%;
 	}
 </style>

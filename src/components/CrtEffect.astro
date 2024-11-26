@@ -1,0 +1,62 @@
+---
+interface Props {
+	heigth: string;
+}
+
+const { heigth } = Astro.props;
+---
+
+<>
+	<div style={{ height: heigth }} class="crt"></div>
+	<div style={{ height: heigth }} class="crt-grid"></div>
+</>
+
+<style define:vars={{ hh: heigth }}>
+	@keyframes anim {
+		0% {
+			background-position-y: 0px;
+		}
+		100% {
+			background-position-y: var(--hh);
+		}
+	}
+
+	.crt-grid {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-size: 100% 100%;
+		z-index: 2;
+		pointer-events: none;
+		background: linear-gradient(
+			to bottom,
+			#12121205,
+			#12121205,
+			#00ff4010,
+			#12121205,
+			#12121205,
+			#00ff4010,
+			#12121205,
+			#12121205
+		);
+		background-repeat: repeat-y;
+		animation: anim forwards infinite 5s linear;
+	}
+	.crt {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(128, 255, 0, 0.021) 50%,
+			rgba(0, 0, 0, 0.25) 50%
+		);
+		background-size: 100% 8px;
+		z-index: 2;
+		pointer-events: none;
+	}
+</style>
