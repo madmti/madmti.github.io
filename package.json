@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "portafolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,10 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/preact": "^3.5.4",
     "astro": "^4.16.13",
-    "preact": "^10.25.0",
-    "typescript": "^5.7.2",
-    "typewriter-effect": "^2.21.0"
+    "typescript": "^5.7.2"
   }
 }
