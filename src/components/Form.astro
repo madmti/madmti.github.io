@@ -1,0 +1,31 @@
+---
+
+---
+
+<form
+	id="contact-form"
+	action="https://outlook.office.com/mail/deeplink/compose"
+	method="get"
+	target="_blank"
+>
+	<input type="hidden" name="to" value="mpenaloza@usm.cl" />
+	<label for="name">Nombre:</label>
+	<input type="text" id="name" name="name" />
+	<label for="subject">Asunto:</label>
+	<input type="text" id="subject" name="subject" required />
+
+	<label for="message">Mensaje:</label>
+	<textarea id="message" name="message" required></textarea>
+
+	<button type="submit">Enviar</button>
+</form>
+
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 21px;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+</style>

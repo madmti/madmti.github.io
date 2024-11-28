@@ -2,9 +2,10 @@
 interface Props {
 	title: string;
 }
-import { HEIGTH } from '../public.env.d';
-
 const { title } = Astro.props;
+const VITE_EMAILJS_KEY = import.meta.env.VITE_EMAILJS_KEY;
+const VITE_EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const VITE_EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 ---
 
 <!doctype html>
@@ -13,10 +14,39 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
 			rel="stylesheet"
 		/>
-
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+		></script>
+		<script type="text/javascript" define:vars={{ hh: 12 }}>
+			(function () {
+				emailjs.init({
+					VITEKey: VITE_EMAILJS_KEY,
+				});
+			})();
+		</script>
+		<script type="text/javascript">
+			window.onload = function () {
+				document
+					.getElementById('contact-form')
+					.addEventListener('submit', function (event) {
+						event.preventDefault();
+						emailjs
+							.sendForm(VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, this)
+							.then(
+								() => {
+									alert('Mensaje enviado correctamente');
+								},
+								(error) => {
+									alert('Error al enviar el mensaje: ', error);
+								}
+							);
+					});
+			};
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
@@ -28,56 +58,85 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global define:vars={{ hh: HEIGTH }}>
+<style is:global>
 	:root {
-		/* Primary Colors */
-		--md-primary: #00ff41;
-		--md-on-primary: #000000;
-		--md-primary-container: #003d1a;
-		--md-on-primary-container: #a7ffc4;
+		--primary: #186ade;
 
-		/* Secondary Colors */
-		--md-secondary: #1c1c1c;
-		--md-on-secondary: #e0e0e0;
-		--md-secondary-container: #333333;
-		--md-on-secondary-container: #b5b5b5;
+		--surface: #ffffff;
+		--on-surface: #000000;
 
-		/* Background Colors */
-		--md-background: #0d0d0d;
-		--md-on-background: #00ff41;
+		--secondary-surface: #10151d;
+		--on-secondary-surface: #ffffff;
 
-		/* Surface Colors */
-		--md-surface: #121212;
-		--md-on-surface: #00ff41;
-	}
+		--radial-start: #3b3e71;
+		--radial-end: #1a1a2e;
 
-	* {
-		font-family: 'Source Code Pro', monospace;
-		font-optical-sizing: auto;
-		font-weight: 400;
-		font-style: normal;
+		--border-card: #3a4c69;
+		--drop-sadow-card: #ffffff;
+
+		--border-form: #cccccc;
+		--on-surface-form: #cccccc;
 	}
 
 	html,
 	body {
-		height: var(--hh) px;
 		width: 100%;
+		height: 100%;
 
 		margin: 0;
 		padding: 0;
 
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		color: var(--md-on-surface);
-		background-color: var(--md-surface);
-
 		scroll-behavior: smooth;
+	}
+
+	* {
+		font-family: 'Onest', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	h1 {
+		font-size: 40px;
+		font-weight: 700;
+	}
+
+	h2 {
+		font-size: 32px;
+		font-weight: 600;
+	}
+
+	h3 {
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	p {
+		font-size: 20px;
+		font-weight: 600;
+	}
+
+	p.card {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	small {
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	.surface {
+		background-color: var(--surface);
+		color: var(--on-surface);
+	}
+
+	.secondary-surface {
+		background-color: var(--secondary-surface);
+		color: var(--on-secondary-surface);
 	}
 
 	::-webkit-scrollbar {
 		display: none;
 	}
-
 </style>

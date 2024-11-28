@@ -1,0 +1,80 @@
+---
+import * as ContactMD from '../../public/contact.md';
+import Form from './Form.astro';
+type PlatformInfo = {
+	name: string;
+	icon: string;
+	value: string;
+	url: string;
+};
+type ContactInfo = Record<'platforms', PlatformInfo[]>;
+//@ts-ignore
+const contact: ContactInfo = ContactMD.frontmatter;
+---
+
+<section class="secondary-surface" id="contact">
+	<div class="left surface">
+		<h2>¡Envíame un correo!</h2>
+		<Form />
+	</div>
+	<div class="right">
+		<h1>Encuéntrame en</h1>
+		<div class="platform-warp">
+			{
+				contact.platforms.map((platform: PlatformInfo) => (
+					<a class="platform" href={platform.url}>
+						<img src={platform.icon} alt={platform.name} />
+						<p>{platform.value}</p>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	#contact {
+		width: 100%;
+		display: flex;
+		overflow: hidden;
+		background: radial-gradient(
+			circle at 0%,
+			var(--radial-start),
+			var(--radial-end)
+		);
+	}
+
+	.left,
+	.right {
+		flex: 1;
+	}
+
+	.left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+
+		padding: 0px 21px;
+	}
+
+	.right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.platform {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		color: var(--on-secondary-surface);
+	}
+
+	.platform img {
+		width: 32px;
+		height: 32px;
+		margin-right: 14px;
+	}
+</style>

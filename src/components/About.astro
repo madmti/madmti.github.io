@@ -1,0 +1,60 @@
+---
+import * as ProfileMD from '../../public/profile.md';
+
+type ProfileInfo = Record<'title' | 'image' | 'last_updated', string>;
+
+//@ts-ignore
+const profile: ProfileInfo = ProfileMD.frontmatter;
+---
+
+<section class="surface" id="about">
+	<h1>Sobre mí</h1>
+	<div class="about-wrap">
+		<picture class="about-image">
+			<img src={profile.image} alt={profile.title} />
+		</picture>
+		<div class="about-content">
+			<h2>{profile.title}</h2>
+			<ProfileMD.Content />
+		</div>
+	</div>
+	<small>Última actualización: {profile.last_updated}</small>
+</section>
+
+<style>
+	#about {
+		width: calc(100% - 42px);
+		display: flex;
+		flex-direction: column;
+		gap: 42px;
+
+		padding: 0px 21px;
+	}
+
+	.about-image img {
+		border-radius: 50%;
+		height: 315px;
+		width: 315px;
+	}
+
+	.about-content {
+		display: flex;
+		flex-direction: column;
+		max-width: 600px;
+		min-width: 300px;
+	}
+
+	.about-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 70px;
+	}
+
+	#about small {
+		align-self: flex-end;
+		margin: 21px 0;
+	}
+</style>
