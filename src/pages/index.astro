@@ -1,9 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Sidebar from '@/components/Sidebar.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
 
-// @ts-ignore
-const fullContent = [];
+const fullContent = {
+	Biografia: await getCollection('biografia'),
+	Proyectos: await getCollection('proyectos'),
+	Blog: await getCollection('blog')
+};
 ---
 
 <Layout>
@@ -11,15 +16,21 @@ const fullContent = [];
 		<Sidebar />
 		<main>
 			{
-				// @ts-ignore
-				fullContent.map(async (entry) => {
-					const { Content } = await entry.render();
+				Object.entries(fullContent).map(async ([name, sec]) => {
 					return (
-						<section id={entry.slug}>
-							<h2>{entry.data.title}</h2>
-							<div>
-								<Content />
-							</div>
+						<section id={name}>
+							<h1>{name}</h1>
+							{sec.map(async (art) => {
+								const { Content } = await render(art);
+								return (
+									<section id={art.id}>
+										<h2>{art.data.title}</h2>
+										<div>
+											<Content />
+										</div>
+									</section>
+								);
+							})}
 						</section>
 					);
 				})
