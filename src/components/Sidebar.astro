@@ -10,23 +10,46 @@ interface Props {
 const { index } = Astro.props;
 ---
 
-<aside>
-	<h1>MATIAS PEÑALOZA</h1>
+<aside class="sticky top-0 flex h-screen w-72 shrink-0 flex-col overflow-y-auto p-10">
+	<h1 class="mb-12 text-3xl leading-tight font-bold tracking-wide text-primary uppercase">
+		MATIAS PEÑALOZA
+	</h1>
 
-	<nav>
+	<nav class="flex flex-col gap-10">
 		{
-			Object.entries(index).map(([name, sec]) => {
-				return (
-					<span>
-						<a href={'/#' + slugify(name)}>{name}</a>
-						<ul>
-							{sec.map((art) => (
-								<a href={slugify(art)}>{art}</a>
-							))}
-						</ul>
-					</span>
-				);
-			})
+			Object.entries(index).map(([name, sec]) => (
+				<div class="flex flex-col">
+					<a href={'#' + slugify(name)} class="mb-4 text-xl font-medium hover:text-primary">
+						$ {name}
+					</a>
+					<ul class="flex flex-col gap-3 pl-6">
+						{sec.map((art) => (
+							<li>
+								<a href={'#' + slugify(art)} class="text-sm transition-colors hover:text-primary">
+									{art}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			))
 		}
 	</nav>
 </aside>
+
+<script>
+	const setActiveFromHash = () => {
+		const hash = window.location.hash;
+		const links = document.querySelectorAll('aside nav a[href^="#"]');
+		links.forEach((link) => {
+			if (link.getAttribute('href') === hash) {
+				link.classList.add('text-primary');
+			} else {
+				link.classList.remove('text-primary');
+			}
+		});
+	};
+
+	window.addEventListener('hashchange', setActiveFromHash);
+	setActiveFromHash();
+</script>

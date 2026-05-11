@@ -1,17 +1,17 @@
-@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');@import 'tailwindcss';
 
 @custom-variant light (&:is(.light *));
 
 @theme {
 	--color-base: oklch(0 0 0);
-	--color-content: oklch(0.9821 0 0);
-	--color-primary: oklch(0.7 0.185 46.59);
+	--color-content: oklch(0.9431 0 0);
+	--color-primary: oklch(0.6585 0.2306 34.88);
 }
 
 .light {
-	--color-base: oklch(1 0 0);
+	--color-base: oklch(0.9431 0 0);
 	--color-content: oklch(0.0668 0 0);
-	--color-primary: oklch(0.7 0.185 46.59);
+	--color-primary: oklch(0.6585 0.2306 34.88);
 }
 
 html,
@@ -24,4 +24,6 @@ body {
 
 	color: var(--color-content);
 	background-color: var(--color-base);
+
+	font-family: "Cascadia Code", sans-serif;
 }

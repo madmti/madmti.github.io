@@ -1,8 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Sidebar from '@/components/Sidebar.astro';
-import { getCollection } from 'astro:content';
-import { render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { slugify } from '@/utils/slug';
 
 const fullContent = {
@@ -12,35 +11,37 @@ const fullContent = {
 };
 
 const onlyIndexInfo = Object.fromEntries(
-	Object.entries(fullContent).map(([name, sec]) => {
-		return [name, sec.map((art) => art.data.title)];
-	})
+	Object.entries(fullContent).map(([name, sec]) => [name, sec.map((art) => art.data.title)])
 );
 ---
 
 <Layout>
-	<div>
+	<div class="flex min-h-screen">
 		<Sidebar index={onlyIndexInfo} />
-		<main>
+
+		<main class="max-w-5xl flex-1 px-12 py-10">
 			{
-				Object.entries(fullContent).map(async ([name, sec]) => {
-					return (
-						<section id={slugify(name)}>
-							<h1>{name}</h1>
+				Object.entries(fullContent).map(async ([name, sec]) => (
+					<section id={slugify(name)} class="mb-24">
+						<h1 class="mb-12 text-5xl font-bold text-primary">{name}</h1>
+
+						<div class="flex flex-col gap-20">
 							{sec.map(async (art) => {
 								const { Content } = await render(art);
 								return (
-									<section id={slugify(art.data.title)}>
-										<h2>{art.data.title}</h2>
-										<div>
+									<section id={slugify(art.data.title)} class="scroll-mt-10">
+										<h2 class="mb-6 text-3xl font-medium">
+											{art.data.title}
+										</h2>
+										<div class="prose prose-invert max-w-none">
 											<Content />
 										</div>
 									</section>
 								);
 							})}
-						</section>
-					);
-				})
+						</div>
+					</section>
+				))
 			}
 		</main>
 	</div>
