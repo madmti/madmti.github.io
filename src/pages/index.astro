@@ -19,7 +19,8 @@ const onlyIndexInfo = Object.fromEntries(
 	<div class="flex min-h-screen">
 		<Sidebar index={onlyIndexInfo} />
 
-		<main class="flex-1 px-12 py-10 h-screen overflow-y-auto">
+		<main class="h-screen flex-1 overflow-y-auto px-12 py-10 scroll-smooth">
+			<span id="top" class="scroll-mt-10"></span>
 			{
 				Object.entries(fullContent).map(async ([name, sec]) => (
 					<section id={slugify(name)} class="mb-24 max-w-5xl">
@@ -30,9 +31,7 @@ const onlyIndexInfo = Object.fromEntries(
 								const { Content } = await render(art);
 								return (
 									<section id={slugify(art.data.title)} class="scroll-mt-10">
-										<h2 class="mb-6 text-3xl font-medium">
-											{art.data.title}
-										</h2>
+										<h2 class="mb-6 text-3xl font-medium">{art.data.title}</h2>
 										<div class="prose prose-invert max-w-none">
 											<Content />
 										</div>
