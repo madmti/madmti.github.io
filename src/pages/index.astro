@@ -3,27 +3,34 @@ import Layout from '@/layouts/Layout.astro';
 import Sidebar from '@/components/Sidebar.astro';
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
+import { slugify } from '@/utils/slug';
 
 const fullContent = {
 	Biografia: await getCollection('biografia'),
 	Proyectos: await getCollection('proyectos'),
 	Blog: await getCollection('blog')
 };
+
+const onlyIndexInfo = Object.fromEntries(
+	Object.entries(fullContent).map(([name, sec]) => {
+		return [name, sec.map((art) => art.data.title)];
+	})
+);
 ---
 
 <Layout>
 	<div>
-		<Sidebar />
+		<Sidebar index={onlyIndexInfo} />
 		<main>
 			{
 				Object.entries(fullContent).map(async ([name, sec]) => {
 					return (
-						<section id={name}>
+						<section id={slugify(name)}>
 							<h1>{name}</h1>
 							{sec.map(async (art) => {
 								const { Content } = await render(art);
 								return (
-									<section id={art.id}>
+									<section id={slugify(art.data.title)}>
 										<h2>{art.data.title}</h2>
 										<div>
 											<Content />

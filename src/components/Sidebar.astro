@@ -1,5 +1,32 @@
 ---
+import { slugify } from '@/utils/slug';
 
+interface Props {
+	index: {
+		[k: string]: string[];
+	};
+}
+
+const { index } = Astro.props;
 ---
 
-<nav></nav>
+<aside>
+	<h1>MATIAS PEÑALOZA</h1>
+
+	<nav>
+		{
+			Object.entries(index).map(([name, sec]) => {
+				return (
+					<span>
+						<a href={'/#' + slugify(name)}>{name}</a>
+						<ul>
+							{sec.map((art) => (
+								<a href={slugify(art)}>{art}</a>
+							))}
+						</ul>
+					</span>
+				);
+			})
+		}
+	</nav>
+</aside>
