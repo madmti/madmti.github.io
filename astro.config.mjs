@@ -5,18 +5,20 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
-	image: {
-		domains: ['avatars.githubusercontent.com', 'github.com']
-	},
+    image: {
+        domains: ['avatars.githubusercontent.com', 'github.com']
+    },
 
-	output: 'static',
-	site: 'https://madmti.github.io',
-	compressHTML: true,
-	integrations: [sitemap()],
+    output: 'static',
+    site: 'https://madmti.github.io',
+    compressHTML: true,
+    integrations: [sitemap(), mdx()],
 
-	vite: {
-		plugins: [tailwindcss()]
-	}
+    vite: {
+        plugins: [tailwindcss()]
+    }
 });
