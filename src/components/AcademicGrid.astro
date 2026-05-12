@@ -9,22 +9,32 @@ if (!entry) {
 const { titulo, semestres, categorias } = entry.data;
 
 const categoryClasses: Record<string, string> = {
-	'Plan Común': 'border-cyan-500/40 text-cyan-200 bg-cyan-950/20',
-	'Fundamentos de Informática': 'border-blue-500/40 text-blue-200 bg-blue-950/20',
-	'Ingeniería de Software': 'border-yellow-500/40 text-yellow-200 bg-yellow-950/20',
-	'Infraestructura TIC': 'border-purple-500/40 text-purple-200 bg-purple-950/20',
-	'Humanistas, libres y deportes': 'border-lime-500/40 text-lime-200 bg-lime-950/20',
-	'Electivos Informática': 'border-orange-500/40 text-orange-200 bg-orange-950/20',
-	'Análisis Numérico': 'border-emerald-500/40 text-emerald-200 bg-emerald-950/20',
-	'Industrias': 'border-sky-500/40 text-sky-200 bg-sky-950/20',
-	'Sistemas de decisión informática': 'border-red-500/40 text-red-200 bg-red-950/20',
-	'Transversal e Integración': 'border-pink-500/40 text-pink-200 bg-pink-950/20'
+	'Plan Común':
+		'border-cyan-500/40 text-cyan-200 bg-cyan-950/20 light:border-cyan-500/40 light:text-cyan-900 light:bg-cyan-100/60',
+	'Fundamentos de Informática':
+		'border-blue-500/40 text-blue-200 bg-blue-950/20 light:border-blue-500/40 light:text-blue-900 light:bg-blue-100/60',
+	'Ingeniería de Software':
+		'border-yellow-500/40 text-yellow-200 bg-yellow-950/20 light:border-yellow-500/40 light:text-yellow-900 light:bg-yellow-100/70',
+	'Infraestructura TIC':
+		'border-purple-500/40 text-purple-200 bg-purple-950/20 light:border-purple-500/40 light:text-purple-900 light:bg-purple-100/70',
+	'Humanistas, libres y deportes':
+		'border-lime-500/40 text-lime-200 bg-lime-950/20 light:border-lime-500/40 light:text-lime-900 light:bg-lime-100/70',
+	'Electivos Informática':
+		'border-orange-500/40 text-orange-200 bg-orange-950/20 light:border-orange-500/40 light:text-orange-900 light:bg-orange-100/70',
+	'Análisis Numérico':
+		'border-emerald-500/40 text-emerald-200 bg-emerald-950/20 light:border-emerald-500/40 light:text-emerald-900 light:bg-emerald-100/70',
+	Industrias:
+		'border-sky-500/40 text-sky-200 bg-sky-950/20 light:border-sky-500/40 light:text-sky-900 light:bg-sky-100/70',
+	'Sistemas de decisión informática':
+		'border-red-500/40 text-red-200 bg-red-950/20 light:border-red-500/40 light:text-red-900 light:bg-red-100/70',
+	'Transversal e Integración':
+		'border-pink-500/40 text-pink-200 bg-pink-950/20 light:border-pink-500/40 light:text-pink-900 light:bg-pink-100/70'
 };
 
 const statusClasses: Record<string, string> = {
 	aprobado: 'opacity-90',
-	cursando: 'ring-1 ring-primary/40',
-	pendiente: 'opacity-40'
+	cursando: 'ring-1 ring-primary/40 light:ring-primary/30',
+	pendiente: 'opacity-40 light:opacity-60'
 };
 
 const columns = semestres.length;
@@ -40,14 +50,16 @@ const legendItems = categorias?.length
 <section class="mt-8">
 	<h3 class="mb-4 text-2xl font-bold tracking-tight text-primary uppercase">{titulo}</h3>
 
-	<div class="overflow-x-auto rounded-md border border-content/10 bg-base/40 p-4">
+	<div class="overflow-x-auto rounded-md border border-content/10 bg-base/40 light:bg-base/80 p-4">
 		<div style={`min-width: ${minWidth}px;`}>
 			<div
-				class="mb-4 grid gap-2 text-center font-mono text-[11px] text-content/60"
+				class="mb-4 grid gap-2 text-center font-mono text-[11px] text-content/60 light:text-content/80"
 				style={`grid-template-columns: repeat(${columns}, minmax(0, 1fr));`}
 			>
 				{semestres.map((semestre) => (
-					<div class="border-b border-content/10 pb-2">{semestre.label}</div>
+					<div class="border-b border-content/10 pb-2 light:border-content/20">
+						{semestre.label}
+					</div>
 				))}
 			</div>
 
@@ -59,13 +71,16 @@ const legendItems = categorias?.length
 					<div class="flex flex-col gap-2">
 						{semestre.ramos.map((ramo) => (
 							<div
-								class={`flex min-h-[72px] flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 ${
-									categoryClasses[ramo.categoria] || 'border-content/10 text-content/70 bg-content/5'
+								class={`flex min-h-[72px] flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 light:hover:brightness-105 ${
+									categoryClasses[ramo.categoria] ||
+									'border-content/10 text-content/70 bg-content/5 light:border-content/20 light:text-content/80 light:bg-content/10'
 								} ${statusClasses[ramo.estado || 'aprobado'] || ''}`}
 							>
 								<div class="flex items-start justify-between gap-2">
 									<span class="font-bold opacity-80">{ramo.sigla}</span>
-									<span class="rounded bg-black/40 px-1">{ramo.creditos}</span>
+									<span class="rounded bg-black/40 px-1 light:bg-content/20 light:text-content/80">
+										{ramo.creditos}
+									</span>
 								</div>
 								<div class="text-[11px] font-medium uppercase tracking-tight">
 									{ramo.nombre}
@@ -79,7 +94,7 @@ const legendItems = categorias?.length
 	</div>
 
 	{legendItems.length > 0 && (
-		<div class="mt-4 flex flex-wrap gap-4 text-[10px] text-content/60">
+		<div class="mt-4 flex flex-wrap gap-4 text-[10px] text-content/60 light:text-content/80">
 			{legendItems.map((categoria) => (
 				<div class="flex items-center gap-2">
 					<span
