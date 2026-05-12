@@ -5,7 +5,9 @@
 	"compilerOptions": {
 		"paths": {
 			"@/": ["./src/"],
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"MDX/": ["./src/components/MDX/"],
+			"MDX/*": ["./src/components/MDX/*"]
 		}
 	}
 }
