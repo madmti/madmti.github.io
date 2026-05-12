@@ -11,7 +11,10 @@ const { index } = Astro.props;
 ---
 
 <aside class="sticky top-0 flex h-screen w-72 shrink-0 flex-col overflow-y-auto p-10">
-    <a href="/#top" class="mb-12 text-3xl leading-tight font-bold tracking-wide text-primary uppercase">
+	<a
+		href="/#top"
+		class="mb-12 text-3xl leading-tight font-bold tracking-wide text-primary uppercase"
+	>
 		MATIAS PEÑALOZA
 	</a>
 
@@ -35,6 +38,34 @@ const { index } = Astro.props;
 			))
 		}
 	</nav>
+
+	<div class="mt-auto flex flex-col gap-4 pt-10 text-sm">
+		<div class="flex items-center justify-between">
+			<span class="text-xs tracking-widest text-content/70 uppercase">Theme</span>
+			<div class="flex items-center gap-2">
+				<button data-theme="dark" type="button" class="theme-option cursor-pointer tracking-wide uppercase">
+					dark
+				</button>
+				<span class="text-content/50 pointer-events-none">|</span>
+				<button data-theme="light" type="button" class="theme-option cursor-pointer tracking-wide uppercase">
+					light
+				</button>
+			</div>
+		</div>
+
+		<div class="flex items-center justify-between">
+			<span class="text-xs tracking-widest text-content/70 uppercase">Languaje</span>
+			<div class="flex items-center gap-2">
+				<button data-lang="es" type="button" class="lang-option cursor-pointer tracking-wide uppercase">
+					es
+				</button>
+				<span class="text-content/50 pointer-events-none">|</span>
+				<button data-lang="en" type="button" class="lang-option cursor-pointer tracking-wide uppercase">
+					en
+				</button>
+			</div>
+		</div>
+	</div>
 </aside>
 
 <script>
@@ -49,6 +80,53 @@ const { index } = Astro.props;
 			}
 		});
 	};
+
+	const body = document.body;
+	const themeOptions = document.querySelectorAll('button.theme-option');
+	const langOptions = document.querySelectorAll('button.lang-option');
+
+	const setActiveOption = (buttons: NodeListOf<Element>, value: string, attr: string) => {
+		buttons.forEach((button) => {
+			const isActive = button.getAttribute(attr) === value;
+			button.classList.toggle('text-primary', isActive);
+			button.classList.toggle('text-content/60', !isActive);
+		});
+	};
+
+	const applyTheme = (theme: string) => {
+		if (theme === 'light') {
+			body.classList.add('light');
+		} else {
+			body.classList.remove('light');
+		}
+		setActiveOption(themeOptions, theme, 'data-theme');
+	};
+
+	const applyLang = (lang: string) => {
+		setActiveOption(langOptions, lang, 'data-lang');
+	};
+
+	const savedTheme = localStorage.getItem('theme') || 'light';
+	applyTheme(savedTheme);
+
+	const savedLang = localStorage.getItem('lang') || 'es';
+	applyLang(savedLang);
+
+	themeOptions.forEach((button) => {
+		button.addEventListener('click', () => {
+			const nextTheme = button.getAttribute('data-theme') || 'light';
+			applyTheme(nextTheme);
+			localStorage.setItem('theme', nextTheme);
+		});
+	});
+
+	langOptions.forEach((button) => {
+		button.addEventListener('click', () => {
+			const nextLang = button.getAttribute('data-lang') || 'es';
+			applyLang(nextLang);
+			localStorage.setItem('lang', nextLang);
+		});
+	});
 
 	window.addEventListener('hashchange', setActiveFromHash);
 	setActiveFromHash();
