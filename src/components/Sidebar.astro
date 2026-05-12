@@ -10,7 +10,11 @@ interface Props {
 const { index } = Astro.props;
 ---
 
-<aside class="sticky top-0 flex h-screen w-72 shrink-0 flex-col overflow-y-auto p-10">
+<aside
+	id="site-sidebar"
+	data-open="false"
+	class="sticky top-0 flex h-screen w-72 shrink-0 flex-col overflow-y-auto bg-base p-10 max-sm:fixed max-sm:inset-y-0 max-sm:left-0 max-sm:z-40 max-sm:transition-transform"
+>
 	<a
 		href="/#top"
 		class="mb-12 text-3xl leading-tight font-bold tracking-wide text-primary uppercase"
@@ -67,6 +71,17 @@ const { index } = Astro.props;
 		</div>
 	</div>
 </aside>
+
+<style>
+	@media (max-width: 640px) {
+		#site-sidebar[data-open='false'] {
+			transform: translateX(-100%);
+		}
+		#site-sidebar[data-open='true'] {
+			transform: translateX(0);
+		}
+	}
+</style>
 
 <script>
 	const setActiveFromHash = () => {
@@ -126,6 +141,43 @@ const { index } = Astro.props;
 			applyLang(nextLang);
 			localStorage.setItem('lang', nextLang);
 		});
+	});
+
+	const sidebar = document.getElementById('site-sidebar');
+	const toggleButton = document.getElementById('sidebar-toggle');
+	const closeButton = document.getElementById('sidebar-close');
+	const overlay = document.getElementById('sidebar-overlay');
+	const sidebarLinks = document.querySelectorAll('#site-sidebar nav a');
+
+	const setSidebarOpen = (open: boolean) => {
+		if (!sidebar) return;
+		sidebar.setAttribute('data-open', open ? 'true' : 'false');
+		if (overlay) {
+			overlay.classList.toggle('hidden', !open);
+			overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+		}
+		if (toggleButton) {
+			toggleButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+		}
+		document.body.classList.toggle('overflow-hidden', open);
+	};
+
+	toggleButton?.addEventListener('click', () => setSidebarOpen(true));
+	closeButton?.addEventListener('click', () => setSidebarOpen(false));
+	overlay?.addEventListener('click', () => setSidebarOpen(false));
+
+	sidebarLinks.forEach((link) => {
+		link.addEventListener('click', () => {
+			if (window.matchMedia('(max-width: 640px)').matches) {
+				setSidebarOpen(false);
+			}
+		});
+	});
+
+	window.addEventListener('resize', () => {
+		if (!window.matchMedia('(max-width: 640px)').matches) {
+			setSidebarOpen(false);
+		}
 	});
 
 	window.addEventListener('hashchange', setActiveFromHash);
