@@ -33,3 +33,5 @@ body {
 	background-color: var(--color-primary);
 	color: var(--color-base);
 }
+
+@import 'mdx.css';
