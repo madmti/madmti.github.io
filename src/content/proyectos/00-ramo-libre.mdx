@@ -2,4 +2,59 @@
 title: Ramo Libre
 ---
 
-Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).
+import Carousel from "MDX/Carousel.astro";
+
+**Ramo Libre** es una aplicación web de alto rendimiento diseñada para ayudar a estudiantes universitarios a gestionar sus horarios, evaluaciones y metas académicas de manera centralizada.
+El proyecto nació como un _remake optimizado_ de su version anterior, enfocado ahora en ofrecer una interfaz más intuitiva y una sincronización fluida entre dispositivos.
+
+<br/>
+
+<Carousel
+	slides={[
+		{
+			url: "/ramo-libre-1.png",
+			label: "RAMO LIBRE: RESUMEN",
+			alt: "Resumen - RamoLibre",
+			position: "top"
+		},
+		{
+			url: "/ramo-libre-2.png",
+			label: "RAMO LIBRE: HORARIOS",
+			alt: "Horarios - RamoLibre",
+			position: "top"
+        },
+        {
+			url: "/ramo-libre-3.png",
+			label: "RAMO LIBRE: NOTAS",
+			alt: "Notas - RamoLibre",
+			position: "top"
+        },
+        {
+			url: "/ramo-libre-4.png",
+			label: "RAMO LIBRE: CALENDARIO",
+			alt: "Calendario - RamoLibre",
+			position: "top"
+        },
+        {
+			url: "/ramo-libre-5.png",
+			label: "RAMO LIBRE: RAMOS",
+			alt: "Ramos - RamoLibre",
+			position: "top"
+        },
+        {
+			url: "/ramo-libre-6.png",
+			label: "RAMO LIBRE: CONFIGURACION",
+			alt: "Configuracion - RamoLibre",
+			position: "top"
+		},
+	]}
+/>
+
+### Características Principales
+- **Motor de Calculo**: Integra [GradeSolver](https://github.com/madmti/GradeSolver) como módulo _WASM_, permitiendo proyectar notas y evaluar reglas de aprobacion sin bloquear la UI.
+- **Filosofia Offline-First**: Implementada como una _PWA_ instalable, permite la visualización y edición de datos sin conexión a internet, sincronizando automáticamente al recuperar la red.
+- **Arquitectura de Alto Rendimiento**: Desarrollada con _Svelte 5_ y _TypeScript_, la app garantiza tiempos de carga menores a 1s en redes 4G para una interactividad inmediata.
+- **Open Source**: El proyecto es de código abierto y cuenta con una [Wiki](https://github.com/madmti/Ramo-Libre-Web/wiki) detallada que documenta todo el proceso de creación, incluyendo diagramas de contexto, modelo de dominio y requisitos funcionales para facilitar la contribución de la comunidad.
+
+### Proximos Hitos
+El siguiente hito importante es la validación de la experiencia de usuario mediante **pruebas en [LabUX](https://labux.inf.utfsm.cl/)**, asegurando que la evolución de la herramienta responda a las necesidades reales del estudiantado.

@@ -3,13 +3,36 @@ interface Props {
 	label: string;
 	alt: string;
 	url: string;
+	position:
+		| 'top'
+		| 'center'
+		| 'bottom'
+		| 'left'
+		| 'right'
+		| 'top-left'
+		| 'top-right'
+		| 'bottom-left'
+		| 'bottom-right';
 }
 
 const {
 	label = 'LOCATION: STUDIO',
 	alt = 'Lugar de trabajo',
-	url = 'https://i.etsystatic.com/30097568/r/il/71a49c/5958491123/il_1140xN.5958491123_lhzi.jpg'
+	url = 'https://i.etsystatic.com/30097568/r/il/71a49c/5958491123/il_1140xN.5958491123_lhzi.jpg',
+	position = 'center'
 } = Astro.props;
+
+const positionClass = {
+	top: 'object-top',
+	center: 'object-center',
+	bottom: 'object-bottom',
+	left: 'object-left',
+	right: 'object-right',
+	'top-left': 'object-left-top',
+	'top-right': 'object-right-top',
+	'bottom-left': 'object-left-bottom',
+	'bottom-right': 'object-right-bottom'
+}[position];
 ---
 
 <div class="relative mb-4 w-full overflow-hidden border border-content/10 bg-content/5">
@@ -21,7 +44,7 @@ const {
 	<img
 		src={url}
 		alt={alt}
-		class="aspect-21/9 h-auto w-full object-cover opacity-90 transition-opacity duration-100 hover:opacity-100"
+		class={`aspect-21/9 h-auto w-full object-cover ${positionClass} opacity-90 transition-opacity duration-100 hover:opacity-100`}
 	/>
 
 	<div class="absolute right-4 bottom-4 bg-base/80 px-2 py-1 backdrop-blur-sm">

@@ -1,0 +1,139 @@
+---
+interface Slide {
+	url: string;
+	label: string;
+	alt: string;
+	position?:
+		| 'top'
+		| 'center'
+		| 'bottom'
+		| 'left'
+		| 'right'
+		| 'top-left'
+		| 'top-right'
+		| 'bottom-left'
+		| 'bottom-right';
+}
+
+interface Props {
+	slides: Slide[];
+}
+
+const { slides } = Astro.props;
+const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
+const positionClass = {
+	top: 'object-top',
+	center: 'object-center',
+	bottom: 'object-bottom',
+	left: 'object-left',
+	right: 'object-right',
+	'top-left': 'object-left-top',
+	'top-right': 'object-right-top',
+	'bottom-left': 'object-left-bottom',
+	'bottom-right': 'object-right-bottom'
+};
+---
+
+<div id={carouselId} class="flex flex-col gap-4">
+	<div class="relative aspect-[21/9] w-full overflow-hidden border border-content/10 bg-content/5">
+		<span class="pointer-events-none absolute top-2 left-2 h-4 w-4 border-t border-l border-primary"
+		></span>
+		<span
+			class="pointer-events-none absolute top-2 right-2 h-4 w-4 border-t border-r border-primary"
+		></span>
+		<span
+			class="pointer-events-none absolute bottom-2 left-2 h-4 w-4 border-b border-l border-primary"
+		></span>
+		<span
+			class="pointer-events-none absolute right-2 bottom-2 h-4 w-4 border-r border-b border-primary"
+		></span>
+
+		{
+			slides.map((slide, index) => (
+				<div
+					class={`slide absolute inset-0 opacity-0 transition-opacity duration-150 ${
+						index === 0 ? 'opacity-100' : ''
+					}`}
+					data-index={index}
+				>
+					<img
+						src={slide.url}
+						alt={slide.alt}
+						class={`h-full w-full object-cover ${positionClass[slide.position ?? 'center']} opacity-90 transition-opacity duration-150 hover:opacity-100`}
+					/>
+					<div class="absolute right-4 bottom-4 bg-base/80 px-2 py-1 backdrop-blur-sm">
+						<span class="font-mono text-[10px] tracking-[0.2em] text-primary uppercase">
+							{slide.label}
+						</span>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="flex justify-end gap-3">
+		<button
+			class="inline-flex cursor-pointer items-center gap-2 rounded border border-content/20 px-3 py-2 text-xs tracking-[0.12em] uppercase transition-colors hover:border-primary hover:text-primary"
+			data-action="prev"
+			type="button"
+		>
+			<span class="text-[10px]">◀</span>
+			<span>Prev</span>
+		</button>
+		<button
+			class="inline-flex cursor-pointer items-center gap-2 rounded border border-content/20 px-3 py-2 text-xs tracking-[0.12em] uppercase transition-colors hover:border-primary hover:text-primary"
+			data-action="next"
+			type="button"
+		>
+			<span>Next</span>
+			<span class="text-[10px]">▶</span>
+		</button>
+	</div>
+</div>
+
+<script define:vars={{ carouselId }}>
+	const root = document.getElementById(carouselId);
+	if (!root) {
+		throw new Error(`[Carousel] Missing root element: ${carouselId}`);
+	}
+
+	const slides = Array.from(root.querySelectorAll('.slide'));
+	const cells = Array.from(root.querySelectorAll('.activity-cell'));
+	const prev = root.querySelector('[data-action="prev"]');
+	const next = root.querySelector('[data-action="next"]');
+	let activeIndex = 0;
+
+	const setActive = (index) => {
+		if (slides.length === 0) return;
+		const safeIndex = ((index % slides.length) + slides.length) % slides.length;
+		activeIndex = safeIndex;
+		slides.forEach((slide, idx) => {
+			const isActive = idx === safeIndex;
+			slide.classList.toggle('opacity-100', isActive);
+			slide.classList.toggle('opacity-0', !isActive);
+			slide.classList.toggle('pointer-events-none', !isActive);
+		});
+		cells.forEach((cell, idx) => {
+			const isActive = idx === safeIndex;
+			cell.classList.toggle('bg-primary', isActive);
+			cell.classList.toggle('border-primary', isActive);
+			cell.classList.toggle('shadow-[0_0_12px_hsl(var(--primary)/0.4)]', isActive);
+			cell.classList.toggle('bg-content/10', !isActive);
+			cell.classList.toggle('border-content/20', !isActive);
+		});
+	};
+
+	setActive(0);
+
+	prev?.addEventListener('click', () => setActive(activeIndex - 1));
+	next?.addEventListener('click', () => setActive(activeIndex + 1));
+
+	cells.forEach((cell) => {
+		cell.addEventListener('click', () => {
+			const index = Number(cell.getAttribute('data-index'));
+			if (!Number.isNaN(index)) {
+				setActive(index);
+			}
+		});
+	});
+</script>
