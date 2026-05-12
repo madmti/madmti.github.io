@@ -44,67 +44,68 @@ const legendItems = categorias?.length
 	? categorias
 	: Array.from(
 			new Set(semestres.flatMap((semestre) => semestre.ramos.map((ramo) => ramo.categoria)))
-	  ).map((nombre) => ({ nombre }));
+		).map((nombre) => ({ nombre }));
 ---
 
 <section class="mt-8">
 	<h3 class="mb-4 text-2xl font-bold tracking-tight text-primary uppercase">{titulo}</h3>
 
-	<div class="overflow-x-auto rounded-md border border-content/10 bg-base/40 light:bg-base/80 p-4">
+	<div class="overflow-x-auto rounded-md border border-content/10 bg-base/40 p-4 light:bg-base/80">
 		<div style={`min-width: ${minWidth}px;`}>
 			<div
 				class="mb-4 grid gap-2 text-center font-mono text-[11px] text-content/60 light:text-content/80"
 				style={`grid-template-columns: repeat(${columns}, minmax(0, 1fr));`}
 			>
-				{semestres.map((semestre) => (
-					<div class="border-b border-content/10 pb-2 light:border-content/20">
-						{semestre.label}
-					</div>
-				))}
+				{
+					semestres.map((semestre) => (
+						<div class="border-b border-content/10 pb-2 light:border-content/20">
+							{semestre.label}
+						</div>
+					))
+				}
 			</div>
 
-			<div
-				class="grid gap-2"
-				style={`grid-template-columns: repeat(${columns}, minmax(0, 1fr));`}
-			>
-				{semestres.map((semestre) => (
-					<div class="flex flex-col gap-2">
-						{semestre.ramos.map((ramo) => (
-							<div
-								class={`flex min-h-[72px] flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 light:hover:brightness-105 ${
-									categoryClasses[ramo.categoria] ||
-									'border-content/10 text-content/70 bg-content/5 light:border-content/20 light:text-content/80 light:bg-content/10'
-								} ${statusClasses[ramo.estado || 'aprobado'] || ''}`}
-							>
-								<div class="flex items-start justify-between gap-2">
-									<span class="font-bold opacity-80">{ramo.sigla}</span>
-									<span class="rounded bg-black/40 px-1 light:bg-content/20 light:text-content/80">
-										{ramo.creditos}
-									</span>
+			<div class="grid gap-2" style={`grid-template-columns: repeat(${columns}, minmax(0, 1fr));`}>
+				{
+					semestres.map((semestre) => (
+						<div class="flex flex-col gap-2">
+							{semestre.ramos.map((ramo) => (
+								<div
+									class={`flex min-h-[72px] flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 light:hover:brightness-105 ${
+										categoryClasses[ramo.categoria] ||
+										'border-content/10 bg-content/5 text-content/70 light:border-content/20 light:bg-content/10 light:text-content/80'
+									} ${statusClasses[ramo.estado || 'aprobado'] || ''}`}
+								>
+									<div class="flex items-start justify-between gap-2">
+										<span class="font-bold opacity-80">{ramo.sigla}</span>
+										<span class="rounded bg-black/40 px-1 light:bg-content/20 light:text-content/80">
+											{ramo.creditos}
+										</span>
+									</div>
+									<div class="text-[11px] font-medium tracking-tight uppercase">{ramo.nombre}</div>
 								</div>
-								<div class="text-[11px] font-medium uppercase tracking-tight">
-									{ramo.nombre}
-								</div>
-							</div>
-						))}
-					</div>
-				))}
+							))}
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>
 
-	{legendItems.length > 0 && (
-		<div class="mt-4 flex flex-wrap gap-4 text-[10px] text-content/60 light:text-content/80">
-			{legendItems.map((categoria) => (
-				<div class="flex items-center gap-2">
-					<span
-						class={`h-3 w-3 rounded-sm border ${
-							categoryClasses[categoria.nombre] || 'border-content/20 bg-content/10'
-						}`}
-					></span>
-					<span>{categoria.nombre}</span>
-				</div>
-			))}
-		</div>
-	)}
+	{
+		legendItems.length > 0 && (
+			<div class="mt-4 flex flex-wrap gap-4 text-[10px] text-content/60 light:text-content/80">
+				{legendItems.map((categoria) => (
+					<div class="flex items-center gap-2">
+						<span
+							class={`h-3 w-3 rounded-sm border ${
+								categoryClasses[categoria.nombre] || 'border-content/20 bg-content/10'
+							}`}
+						/>
+						<span>{categoria.nombre}</span>
+					</div>
+				))}
+			</div>
+		)
+	}
 </section>
