@@ -1,0 +1,485 @@
+{
+	"titulo": "Progreso Académico",
+	"semestres": [
+		{
+			"label": "I",
+			"ramos": [
+				{
+					"sigla": "IWI-131",
+					"nombre": "Programación",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-021",
+					"nombre": "Matemáticas I",
+					"creditos": 8,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-100",
+					"nombre": "Introducción a la Física",
+					"creditos": 6,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "HRW-132",
+					"nombre": "Humanístico I",
+					"creditos": 3,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "DEW-100",
+					"nombre": "Educación Física I",
+					"creditos": 2,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "II",
+			"ramos": [
+				{
+					"sigla": "QUI-010",
+					"nombre": "Química y Sociedad",
+					"creditos": 5,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-022",
+					"nombre": "Matemáticas II",
+					"creditos": 7,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-110",
+					"nombre": "Física General I",
+					"creditos": 8,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "IWG-101",
+					"nombre": "Introducción a la Ingeniería",
+					"creditos": 3,
+					"categoria": "Transversal e Integración",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "HRW-133",
+					"nombre": "Humanístico II",
+					"creditos": 3,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "DEW-101",
+					"nombre": "Educación Física II",
+					"creditos": 2,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "III",
+			"ramos": [
+				{
+					"sigla": "INF-134",
+					"nombre": "Estructuras de Datos",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-023",
+					"nombre": "Matemáticas III",
+					"creditos": 7,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-120",
+					"nombre": "Física General II",
+					"creditos": 8,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-152",
+					"nombre": "Estructuras Discretas",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-260",
+					"nombre": "Teoría de Sistemas",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-I",
+					"nombre": "Fund. Investigacion de Operaciones",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "IV",
+			"ramos": [
+				{
+					"sigla": "INF-253",
+					"nombre": "Lenguajes de Programación",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-024",
+					"nombre": "Matemáticas IV",
+					"creditos": 6,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-130",
+					"nombre": "Física General III",
+					"creditos": 8,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-155",
+					"nombre": "Informática Teórica",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "IWN-170",
+					"nombre": "Economía IA",
+					"creditos": 5,
+					"categoria": "Industrias",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-II",
+					"nombre": "Aplicaciones Moviles",
+					"creditos": 5,
+					"categoria": "Ingeniería de Software",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "TALLER-1",
+					"nombre": "Taller de Ciberseguridad",
+					"creditos": 0,
+					"estado": "aprobado",
+					"categoria": "Infraestructura TIC"
+				}
+			]
+		},
+		{
+			"label": "V",
+			"ramos": [
+				{
+					"sigla": "INF-239",
+					"nombre": "Bases de Datos",
+					"creditos": 5,
+					"categoria": "Ingeniería de Software",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-245",
+					"nombre": "Arquitectura y Organización de Computadores",
+					"creditos": 5,
+					"categoria": "Infraestructura TIC",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-140",
+					"nombre": "Física General IV",
+					"creditos": 8,
+					"categoria": "Plan Común",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-280",
+					"nombre": "Estadística Computacional",
+					"creditos": 5,
+					"categoria": "Análisis Numérico",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-270",
+					"nombre": "Organizaciones y Sistemas de Información",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-III",
+					"nombre": "Inteligencia Artificial Explicable",
+					"creditos": 5,
+					"categoria": "Análisis Numérico",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "VI",
+			"ramos": [
+				{
+					"sigla": "INF-236",
+					"nombre": "Análisis y Diseño de Software",
+					"creditos": 5,
+					"categoria": "Ingeniería de Software",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-246",
+					"nombre": "Sistemas Operativos",
+					"creditos": 5,
+					"categoria": "Infraestructura TIC",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-276",
+					"nombre": "Ingeniería, Informática y Sociedad",
+					"creditos": 5,
+					"categoria": "Transversal e Integración",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-221",
+					"nombre": "Algoritmos y Complejidad",
+					"creditos": 5,
+					"categoria": "Fundamentos de Informática",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "ICN-270",
+					"nombre": "Información y Matemáticas Financieras",
+					"creditos": 5,
+					"categoria": "Industrias",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "LIBRE-IV",
+					"nombre": "Atletismo",
+					"creditos": 2,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "VII",
+			"ramos": [
+				{
+					"sigla": "INF-225",
+					"nombre": "Ingeniería de Software",
+					"creditos": 5,
+					"categoria": "Ingeniería de Software",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-256",
+					"nombre": "Redes de Computadores",
+					"creditos": 5,
+					"categoria": "Infraestructura TIC",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-285",
+					"nombre": "Computación Científica",
+					"creditos": 5,
+					"categoria": "Análisis Numérico",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-293",
+					"nombre": "Investigación de Operaciones",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "LIBRE-V",
+					"nombre": "Procesamiento Señales e Imagenes",
+					"creditos": 5,
+					"categoria": "Análisis Numérico",
+					"estado": "cursando"
+				}
+			]
+		},
+		{
+			"label": "VIII",
+			"ramos": [
+				{
+					"sigla": "INF-322",
+					"nombre": "Diseño Interfaces Usuarias",
+					"creditos": 5,
+					"categoria": "Ingeniería de Software",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-343",
+					"nombre": "Sistemas Distribuidos",
+					"creditos": 5,
+					"categoria": "Infraestructura TIC",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-301",
+					"nombre": "Electivo Informática I",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-295",
+					"nombre": "Inteligencia Artificial",
+					"creditos": 5,
+					"categoria": "Análisis Numérico",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-266",
+					"nombre": "Sistemas de Gestión",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-6",
+					"nombre": "Libre VI",
+					"creditos": 2,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "IX",
+			"ramos": [
+				{
+					"sigla": "INF-302",
+					"nombre": "Electivo Informática II",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-303",
+					"nombre": "Electivo Informática III",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-311",
+					"nombre": "Electivo I",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-312",
+					"nombre": "Electivo II",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-360",
+					"nombre": "Gestión de Proyectos de Informática",
+					"creditos": 5,
+					"categoria": "Sistemas de decisión informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-7",
+					"nombre": "Libre VII",
+					"creditos": 2,
+					"categoria": "Humanistas, libres y deportes",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "X",
+			"ramos": [
+				{
+					"sigla": "INF-304",
+					"nombre": "Electivo Informática IV",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-313",
+					"nombre": "Electivo III",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-314",
+					"nombre": "Electivo IV",
+					"creditos": 5,
+					"categoria": "Electivos Informática",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-228",
+					"nombre": "Taller Desarrollo de Proyecto de Informática",
+					"creditos": 10,
+					"categoria": "Transversal e Integración",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-309",
+					"nombre": "Trabajo de Título 1",
+					"creditos": 2,
+					"categoria": "Transversal e Integración",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "XI",
+			"ramos": [
+				{
+					"sigla": "INF-310",
+					"nombre": "Trabajo de Título 2",
+					"creditos": 20,
+					"categoria": "Transversal e Integración",
+					"estado": "pendiente"
+				}
+			]
+		}
+	],
+	"categorias": [
+		{ "nombre": "Plan Común" },
+		{ "nombre": "Fundamentos de Informática" },
+		{ "nombre": "Ingeniería de Software" },
+		{ "nombre": "Infraestructura TIC" },
+		{ "nombre": "Humanistas, libres y deportes" },
+		{ "nombre": "Transversal e Integración" },
+		{ "nombre": "Sistemas de decisión informática" },
+		{ "nombre": "Industrias" },
+		{ "nombre": "Análisis Numérico" },
+		{ "nombre": "Electivos Informática" }
+	]
+}
