@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Sidebar from '@/components/Sidebar.astro';
+import Banner from '@/components/Banner.astro';
 import { getCollection, render } from 'astro:content';
 import { slugify } from '@/utils/slug';
 
@@ -19,30 +20,11 @@ const onlyIndexInfo = Object.fromEntries(
 	<div class="relative flex min-h-screen">
 		<Sidebar index={onlyIndexInfo} />
 
-		<div id="sidebar-overlay" class="fixed inset-0 z-30 hidden bg-black/50" aria-hidden="true">
-		</div>
-
-		<div
-			class="absolute top-0 z-20 hidden w-full items-center justify-between border-b border-content/10 bg-base px-6 py-3 max-sm:flex"
-		>
-			<a href="/#top" class="text-sm font-semibold tracking-wide text-primary uppercase">
-				MATIAS PEÑALOZA
-			</a>
-			<button
-				id="sidebar-toggle"
-				type="button"
-				class="inline-flex cursor-pointer items-center gap-2 rounded border border-content/20 px-3 py-2 text-sm font-medium"
-				aria-controls="site-sidebar"
-				aria-expanded="false"
-			>
-				$ Navegacion
-			</button>
-		</div>
-
 		<main
 			class="h-screen flex-1 overflow-y-auto scroll-smooth px-12 py-10 max-sm:px-6 max-sm:pt-20"
 		>
 			<span id="top" class="scroll-mt-20"></span>
+			<Banner />
 			{
 				Object.entries(fullContent).map(async ([name, sec]) => (
 					<section id={slugify(name)} class="mb-24 max-w-5xl scroll-mt-20">

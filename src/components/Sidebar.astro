@@ -10,6 +10,25 @@ interface Props {
 const { index } = Astro.props;
 ---
 
+<div id="sidebar-overlay" class="fixed inset-0 z-30 hidden bg-black/50" aria-hidden="true"></div>
+
+<div
+	class="absolute top-0 z-20 hidden w-full items-center justify-between border-b border-content/10 bg-base px-6 py-3 max-sm:flex"
+>
+	<a href="/#top" class="text-sm font-semibold tracking-wide text-primary uppercase">
+		MATIAS PEÑALOZA
+	</a>
+	<button
+		id="sidebar-toggle"
+		type="button"
+		class="inline-flex cursor-pointer items-center gap-2 rounded border border-content/20 px-3 py-2 text-sm font-medium"
+		aria-controls="site-sidebar"
+		aria-expanded="false"
+	>
+		$ Navegacion
+	</button>
+</div>
+
 <aside
 	id="site-sidebar"
 	data-open="false"
@@ -47,11 +66,19 @@ const { index } = Astro.props;
 		<div class="flex items-center justify-between">
 			<span class="text-xs tracking-widest text-content/70 uppercase">Theme</span>
 			<div class="flex items-center gap-2">
-				<button data-theme="dark" type="button" class="theme-option cursor-pointer tracking-wide uppercase">
+				<button
+					data-theme="dark"
+					type="button"
+					class="theme-option cursor-pointer tracking-wide uppercase"
+				>
 					dark
 				</button>
-				<span class="text-content/50 pointer-events-none">|</span>
-				<button data-theme="light" type="button" class="theme-option cursor-pointer tracking-wide uppercase">
+				<span class="pointer-events-none text-content/50">|</span>
+				<button
+					data-theme="light"
+					type="button"
+					class="theme-option cursor-pointer tracking-wide uppercase"
+				>
 					light
 				</button>
 			</div>
@@ -60,11 +87,19 @@ const { index } = Astro.props;
 		<div class="flex items-center justify-between">
 			<span class="text-xs tracking-widest text-content/70 uppercase">Languaje</span>
 			<div class="flex items-center gap-2">
-				<button data-lang="es" type="button" class="lang-option cursor-pointer tracking-wide uppercase">
+				<button
+					data-lang="es"
+					type="button"
+					class="lang-option cursor-pointer tracking-wide uppercase"
+				>
 					es
 				</button>
-				<span class="text-content/50 pointer-events-none">|</span>
-				<button data-lang="en" type="button" class="lang-option cursor-pointer tracking-wide uppercase">
+				<span class="pointer-events-none text-content/50">|</span>
+				<button
+					data-lang="en"
+					type="button"
+					class="lang-option cursor-pointer tracking-wide uppercase"
+				>
 					en
 				</button>
 			</div>
@@ -84,17 +119,51 @@ const { index } = Astro.props;
 </style>
 
 <script>
-	const setActiveFromHash = () => {
-		const hash = window.location.hash;
-		const links = document.querySelectorAll('aside nav a[href^="#"]');
-		links.forEach((link) => {
-			if (link.getAttribute('href') === hash) {
-				link.classList.add('text-primary');
-			} else {
-				link.classList.remove('text-primary');
-			}
-		});
+	const navLinks = Array.from(
+		document.querySelectorAll('aside nav a[href^="#"]')
+	) as HTMLAnchorElement[];
+
+	const setActiveLink = (targetId: string | null) => {
+		navLinks.forEach((link) => link.classList.remove('text-primary'));
+
+		if (!targetId) return;
+
+		const activeLink = navLinks.find((link) => link.getAttribute('href') === `#${targetId}`);
+		if (!activeLink) return;
+
+		activeLink.classList.add('text-primary');
+
+		const group = activeLink.closest('nav div');
+		const sectionLink = group?.querySelector(':scope > a[href^="#"]');
+		sectionLink?.classList.add('text-primary');
 	};
+
+	const sectionIds = navLinks
+		.map((link) => link.getAttribute('href')?.replace('#', ''))
+		.filter((id): id is string => Boolean(id));
+
+	const sections = sectionIds
+		.map((id) => document.getElementById(id))
+		.filter((section): section is HTMLElement => Boolean(section));
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const visible = entries
+				.filter((entry) => entry.isIntersecting)
+				.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+			if (visible.length > 0) {
+				setActiveLink(visible[0].target.id);
+			}
+		},
+		{
+			root: null,
+			rootMargin: '-20% 0px -70% 0px',
+			threshold: [0, 0.25, 0.5, 0.75, 1]
+		}
+	);
+
+	sections.forEach((section) => observer.observe(section));
 
 	const body = document.body;
 	const themeOptions = document.querySelectorAll('button.theme-option');
@@ -180,6 +249,6 @@ const { index } = Astro.props;
 		}
 	});
 
-	window.addEventListener('hashchange', setActiveFromHash);
-	setActiveFromHash();
+	const firstVisible = sections.find((section) => section.getBoundingClientRect().top >= 0);
+	setActiveLink(firstVisible?.id || sections[0]?.id || null);
 </script>

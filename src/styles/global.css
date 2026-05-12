@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+@import 'tailwindcss';
 
 @custom-variant light (&:is(.light *));
 
@@ -25,7 +26,7 @@ body {
 	color: var(--color-content);
 	background-color: var(--color-base);
 
-	font-family: "Cascadia Code", sans-serif;
+	font-family: 'Cascadia Code', sans-serif;
 }
 
 ::selection {

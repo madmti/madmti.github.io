@@ -1,0 +1,107 @@
+---
+// Banner.astro - Inspirado en el estilo terminal/hacker de Matias
+---
+
+<div class="mb-16 flex w-full flex-col gap-8 border-b border-content/10 pb-12">
+	<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+		{
+			[
+				{ label: 'Status', value: 'ONLINE', color: 'text-primary' },
+				{ label: 'Focus', value: 'SOFTWARE & DATA', color: 'text-content' },
+				{ label: 'Location', value: 'CHILE - V REGION', color: 'text-content' },
+				{ label: 'Version', value: 'v3.0.0', color: 'text-content' }
+			].map((item) => (
+				<div class="flex flex-col border border-content/10 bg-content/5 p-3">
+					<span class="mb-1 text-[10px] tracking-[0.2em] text-content/50 uppercase">
+						{item.label}
+					</span>
+					<span class={`font-mono text-xs font-bold tracking-wider ${item.color}`}>
+						{`[ ${item.value} ]`}
+					</span>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="flex flex-col gap-3">
+		<div class="flex items-center justify-between">
+			<span class="font-mono text-xs tracking-widest text-content/40 uppercase">Activity Log</span>
+			<span class="font-mono text-[10px] text-primary/60">Pulse: Active</span>
+		</div>
+
+		<div
+			id="activity-grid"
+			data-rows="6"
+			class="flex cursor-crosshair flex-wrap gap-0.75"
+			aria-hidden="true"
+		>
+		</div>
+
+		<div
+			class="mt-1 flex items-center justify-between font-mono text-[9px] text-content/30 uppercase"
+		>
+			<span>Less active</span>
+			<div class="flex gap-1">
+				<div class="h-2 w-2 bg-content/5"></div>
+				<div class="h-2 w-2 bg-primary/20"></div>
+				<div class="h-2 w-2 bg-primary/40"></div>
+				<div class="h-2 w-2 bg-primary/80"></div>
+			</div>
+			<span>More active</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	@keyframes pulse-soft {
+		0%,
+		49% {
+			opacity: 1;
+		}
+		50%,
+		99% {
+			opacity: 0.2;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.text-primary {
+		animation: pulse-soft 2s steps(1, end) infinite;
+	}
+</style>
+
+<script>
+	const grid = document.getElementById('activity-grid');
+	if (grid) {
+		const rows = Number(grid.getAttribute('data-rows') || 6);
+		const colors = [
+			'bg-content/5',
+			'bg-content/10',
+			'bg-primary/20',
+			'bg-primary/40',
+			'bg-primary/80'
+		];
+
+		const buildSquares = () => {
+			const gap = 3;
+			const baseSize = window.innerWidth >= 640 ? 16 : 12;
+			const availableWidth = grid.clientWidth;
+			const columns = Math.max(1, Math.floor((availableWidth + gap) / (baseSize + gap)));
+			const total = columns * rows;
+
+			grid.innerHTML = '';
+			for (let i = 0; i < total; i += 1) {
+				const square = document.createElement('div');
+				const color = colors[Math.floor(Math.random() * colors.length)];
+				square.className = `h-3 w-3 sm:h-4 sm:w-4 ${color} transition-colors hover:border hover:border-primary`;
+				grid.appendChild(square);
+			}
+		};
+
+		const observer = new ResizeObserver(buildSquares);
+		observer.observe(grid);
+		buildSquares();
+	}
+</script>
