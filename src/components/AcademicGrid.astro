@@ -71,7 +71,7 @@ const legendItems = categorias?.length
 						<div class="flex flex-col gap-2">
 							{semestre.ramos.map((ramo) => (
 								<div
-									class={`flex min-h-[72px] flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 light:hover:brightness-105 ${
+									class={`flex min-h-18 flex-col justify-between rounded-sm border p-2 text-[10px] leading-tight transition-all hover:brightness-110 light:hover:brightness-105 ${
 										categoryClasses[ramo.categoria] ||
 										'border-content/10 bg-content/5 text-content/70 light:border-content/20 light:bg-content/10 light:text-content/80'
 									} ${statusClasses[ramo.estado || 'aprobado'] || ''}`}
