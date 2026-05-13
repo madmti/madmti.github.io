@@ -1,0 +1,485 @@
+{
+	"titulo": "Academic Progress",
+	"semestres": [
+		{
+			"label": "I",
+			"ramos": [
+				{
+					"sigla": "IWI-131",
+					"nombre": "Programming",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-021",
+					"nombre": "Mathematics I",
+					"creditos": 8,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-100",
+					"nombre": "Introduction to Physics",
+					"creditos": 6,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "HRW-132",
+					"nombre": "Humanities I",
+					"creditos": 3,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "DEW-100",
+					"nombre": "Physical Education I",
+					"creditos": 2,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "II",
+			"ramos": [
+				{
+					"sigla": "QUI-010",
+					"nombre": "Chemistry and Society",
+					"creditos": 5,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-022",
+					"nombre": "Mathematics II",
+					"creditos": 7,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-110",
+					"nombre": "General Physics I",
+					"creditos": 8,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "IWG-101",
+					"nombre": "Introduction to Engineering",
+					"creditos": 3,
+					"categoria": "Transversal & Integration",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "HRW-133",
+					"nombre": "Humanities II",
+					"creditos": 3,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "DEW-101",
+					"nombre": "Physical Education II",
+					"creditos": 2,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "III",
+			"ramos": [
+				{
+					"sigla": "INF-134",
+					"nombre": "Data Structures",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-023",
+					"nombre": "Mathematics III",
+					"creditos": 7,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-120",
+					"nombre": "General Physics II",
+					"creditos": 8,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-152",
+					"nombre": "Discrete Structures",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-260",
+					"nombre": "Systems Theory",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-I",
+					"nombre": "Fundamentals of Operations Research",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "IV",
+			"ramos": [
+				{
+					"sigla": "INF-253",
+					"nombre": "Programming Languages",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "MAT-024",
+					"nombre": "Mathematics IV",
+					"creditos": 6,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-130",
+					"nombre": "General Physics III",
+					"creditos": 8,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-155",
+					"nombre": "Theoretical Computer Science",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "IWN-170",
+					"nombre": "Economics IA",
+					"creditos": 5,
+					"categoria": "Industry",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-II",
+					"nombre": "Mobile Applications",
+					"creditos": 5,
+					"categoria": "Software Engineering",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "TALLER-1",
+					"nombre": "Cybersecurity Workshop",
+					"creditos": 0,
+					"estado": "aprobado",
+					"categoria": "ICT Infrastructure"
+				}
+			]
+		},
+		{
+			"label": "V",
+			"ramos": [
+				{
+					"sigla": "INF-239",
+					"nombre": "Databases",
+					"creditos": 5,
+					"categoria": "Software Engineering",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-245",
+					"nombre": "Computer Architecture and Organization",
+					"creditos": 5,
+					"categoria": "ICT Infrastructure",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "FIS-140",
+					"nombre": "General Physics IV",
+					"creditos": 8,
+					"categoria": "Common Core",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-280",
+					"nombre": "Computational Statistics",
+					"creditos": 5,
+					"categoria": "Numerical Analysis",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-270",
+					"nombre": "Organizations and Information Systems",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "LIBRE-III",
+					"nombre": "Explainable Artificial Intelligence",
+					"creditos": 5,
+					"categoria": "Numerical Analysis",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "VI",
+			"ramos": [
+				{
+					"sigla": "INF-236",
+					"nombre": "Software Analysis and Design",
+					"creditos": 5,
+					"categoria": "Software Engineering",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-246",
+					"nombre": "Operating Systems",
+					"creditos": 5,
+					"categoria": "ICT Infrastructure",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-276",
+					"nombre": "Engineering, Computing and Society",
+					"creditos": 5,
+					"categoria": "Transversal & Integration",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "INF-221",
+					"nombre": "Algorithms and Complexity",
+					"creditos": 5,
+					"categoria": "Computing Fundamentals",
+					"estado": "aprobado"
+				},
+				{
+					"sigla": "ICN-270",
+					"nombre": "Information and Financial Mathematics",
+					"creditos": 5,
+					"categoria": "Industry",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "LIBRE-IV",
+					"nombre": "Athletics",
+					"creditos": 2,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "aprobado"
+				}
+			]
+		},
+		{
+			"label": "VII",
+			"ramos": [
+				{
+					"sigla": "INF-225",
+					"nombre": "Software Engineering",
+					"creditos": 5,
+					"categoria": "Software Engineering",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-256",
+					"nombre": "Computer Networks",
+					"creditos": 5,
+					"categoria": "ICT Infrastructure",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-285",
+					"nombre": "Scientific Computing",
+					"creditos": 5,
+					"categoria": "Numerical Analysis",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "INF-293",
+					"nombre": "Operations Research",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "cursando"
+				},
+				{
+					"sigla": "LIBRE-V",
+					"nombre": "Signal and Image Processing",
+					"creditos": 5,
+					"categoria": "Numerical Analysis",
+					"estado": "cursando"
+				}
+			]
+		},
+		{
+			"label": "VIII",
+			"ramos": [
+				{
+					"sigla": "INF-322",
+					"nombre": "User Interface Design",
+					"creditos": 5,
+					"categoria": "Software Engineering",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-343",
+					"nombre": "Distributed Systems",
+					"creditos": 5,
+					"categoria": "ICT Infrastructure",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-301",
+					"nombre": "CS Elective I",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-295",
+					"nombre": "Artificial Intelligence",
+					"creditos": 5,
+					"categoria": "Numerical Analysis",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-266",
+					"nombre": "Management Systems",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-6",
+					"nombre": "Free Elective VI",
+					"creditos": 2,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "IX",
+			"ramos": [
+				{
+					"sigla": "INF-302",
+					"nombre": "CS Elective II",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-303",
+					"nombre": "CS Elective III",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-311",
+					"nombre": "Elective I",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-312",
+					"nombre": "Elective II",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-360",
+					"nombre": "IT Project Management",
+					"creditos": 5,
+					"categoria": "Information Decision Systems",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-7",
+					"nombre": "Free Elective VII",
+					"creditos": 2,
+					"categoria": "Humanities, electives, and sports",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "X",
+			"ramos": [
+				{
+					"sigla": "INF-304",
+					"nombre": "CS Elective IV",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-313",
+					"nombre": "Elective III",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-314",
+					"nombre": "Elective IV",
+					"creditos": 5,
+					"categoria": "CS Electives",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-228",
+					"nombre": "IT Project Development Workshop",
+					"creditos": 10,
+					"categoria": "Transversal & Integration",
+					"estado": "pendiente"
+				},
+				{
+					"sigla": "INF-309",
+					"nombre": "Thesis Project 1",
+					"creditos": 2,
+					"categoria": "Transversal & Integration",
+					"estado": "pendiente"
+				}
+			]
+		},
+		{
+			"label": "XI",
+			"ramos": [
+				{
+					"sigla": "INF-310",
+					"nombre": "Thesis Project 2",
+					"creditos": 20,
+					"categoria": "Transversal & Integration",
+					"estado": "pendiente"
+				}
+			]
+		}
+	],
+	"categorias": [
+		{ "nombre": "Common Core" },
+		{ "nombre": "Computing Fundamentals" },
+		{ "nombre": "Software Engineering" },
+		{ "nombre": "ICT Infrastructure" },
+		{ "nombre": "Humanities, electives, and sports" },
+		{ "nombre": "Transversal & Integration" },
+		{ "nombre": "Information Decision Systems" },
+		{ "nombre": "Industry" },
+		{ "nombre": "Numerical Analysis" },
+		{ "nombre": "CS Electives" }
+	]
+}

@@ -1,9 +1,17 @@
 ---
 import { getEntry } from 'astro:content';
 
-const entry = await getEntry('academico', 'malla');
+type Lang = 'es' | 'en';
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const entry = await getEntry('academico', `malla-${lang}`);
 if (!entry) {
-	throw new Error('No se encontró el entry academico/malla');
+	throw new Error(`No se encontró el entry academico/malla-${lang}`);
 }
 
 const { titulo, semestres, categorias } = entry.data;
@@ -28,6 +36,26 @@ const categoryClasses: Record<string, string> = {
 	'Sistemas de decisión informática':
 		'border-red-500/40 text-red-200 bg-red-950/20 light:border-red-500/40 light:text-red-900 light:bg-red-100/70',
 	'Transversal e Integración':
+		'border-pink-500/40 text-pink-200 bg-pink-950/20 light:border-pink-500/40 light:text-pink-900 light:bg-pink-100/70',
+	'Common Core':
+		'border-cyan-500/40 text-cyan-200 bg-cyan-950/20 light:border-cyan-500/40 light:text-cyan-900 light:bg-cyan-100/60',
+	'Computing Fundamentals':
+		'border-blue-500/40 text-blue-200 bg-blue-950/20 light:border-blue-500/40 light:text-blue-900 light:bg-blue-100/60',
+	'Software Engineering':
+		'border-yellow-500/40 text-yellow-200 bg-yellow-950/20 light:border-yellow-500/40 light:text-yellow-900 light:bg-yellow-100/70',
+	'ICT Infrastructure':
+		'border-purple-500/40 text-purple-200 bg-purple-950/20 light:border-purple-500/40 light:text-purple-900 light:bg-purple-100/70',
+	'Humanities, electives, and sports':
+		'border-lime-500/40 text-lime-200 bg-lime-950/20 light:border-lime-500/40 light:text-lime-900 light:bg-lime-100/70',
+	'CS Electives':
+		'border-orange-500/40 text-orange-200 bg-orange-950/20 light:border-orange-500/40 light:text-orange-900 light:bg-orange-100/70',
+	'Numerical Analysis':
+		'border-emerald-500/40 text-emerald-200 bg-emerald-950/20 light:border-emerald-500/40 light:text-emerald-900 light:bg-emerald-100/70',
+	Industry:
+		'border-sky-500/40 text-sky-200 bg-sky-950/20 light:border-sky-500/40 light:text-sky-900 light:bg-sky-100/70',
+	'Information Decision Systems':
+		'border-red-500/40 text-red-200 bg-red-950/20 light:border-red-500/40 light:text-red-900 light:bg-red-100/70',
+	'Transversal & Integration':
 		'border-pink-500/40 text-pink-200 bg-pink-950/20 light:border-pink-500/40 light:text-pink-900 light:bg-pink-100/70'
 };
 
