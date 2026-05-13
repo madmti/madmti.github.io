@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-          name: github-pages-${{ github.run_number }}
+          name: github-pages
 
   # DEPLOY
   # Llama al workflow reutilizable para hacer el deploy y auditoria con Lighthouse
@@ -49,6 +49,4 @@ jobs:
       # Configura el entorno de deploy para usar el environment github-pages
       # y activar la auditoria con Lighthouse al final del deploy
       environment_name: 'github-pages'
-      run_audit: true
-    secrets:
-       GH_PAT: ${{ secrets.GH_PAT }}
+      run_audit: false
