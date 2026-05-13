@@ -9,10 +9,6 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-	image: {
-		domains: ['avatars.githubusercontent.com', 'github.com']
-	},
-
 	output: 'static',
 	site: 'https://madmti.github.io',
 	compressHTML: true,
