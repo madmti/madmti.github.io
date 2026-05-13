@@ -39,16 +39,17 @@ jobs:
           name: github-pages-${{ github.run_number }}
 
   # DEPLOY
-  # Llama al workflow reutilizable para hacer el deploy y auditoria con Lighthouse
   deploy:
-    name: Call Shared Deploy
+    name: Deploy to GitHub Pages
     needs: build
-    uses: lyoss-usm/workflows/.github/workflows/gh-pages-deploy.yml@main
-    with:
-      # CONFIGURACION DE DEPLOY
-      # Configura el entorno de deploy para usar el environment github-pages
-      # y activar la auditoria con Lighthouse al final del deploy
-      environment_name: 'github-pages'
-      run_audit: true
-    secrets:
-       GH_PAT: ${{ secrets.GH_PAT }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
