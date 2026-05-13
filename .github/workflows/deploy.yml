@@ -19,16 +19,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
-      - name: Install and Build
-        uses: withastro/action@v6
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-            # CONFIGURACION DE BUILD
-            # Configura la ruta, version de node y package manager
-            path: .
-            node-version: 22
-            package-manager: pnpm@latest
+          node-version: 22
+          cache: pnpm
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Approve Build Scripts
+        run: pnpm approve-builds --all
+
+      - name: Rebuild Native Dependencies
+        run: pnpm rebuild
+
+      - name: Build
+        run: pnpm build
 
       # UPLOAD ARTIFACT
       # Sube la carpeta 'dist' como artifact para GitHub Pages, asi lo puede usar el siguiente job.
