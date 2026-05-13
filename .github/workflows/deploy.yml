@@ -36,7 +36,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Approve Build Scripts
-        run: pnpm approve-builds --all
+        run: pnpm approve-builds
 
       - name: Rebuild Native Dependencies
         run: pnpm rebuild
