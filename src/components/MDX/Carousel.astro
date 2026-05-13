@@ -15,11 +15,31 @@ interface Slide {
 		| 'bottom-right';
 }
 
-interface Props {
-	slides: Slide[];
+interface CarouselLabels {
+	prev: string;
+	next: string;
+	activityLog: string;
+	pulse: string;
+	lessActive: string;
+	moreActive: string;
 }
 
-const { slides } = Astro.props;
+interface Props {
+	slides: Slide[];
+	labels?: CarouselLabels;
+}
+
+const {
+	slides,
+	labels = {
+		prev: 'Anterior',
+		next: 'Siguiente',
+		activityLog: 'Registro de actividad',
+		pulse: 'Pulso: Activo',
+		lessActive: 'Menos activo',
+		moreActive: 'Más activo'
+	}
+} = Astro.props;
 const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 const positionClass = {
 	top: 'object-top',
@@ -78,14 +98,14 @@ const positionClass = {
 			type="button"
 		>
 			<span class="text-[10px]">◀</span>
-			<span>Prev</span>
+			<span>{labels.prev}</span>
 		</button>
 		<button
 			class="inline-flex cursor-pointer items-center gap-2 rounded border border-content/20 px-3 py-2 text-xs tracking-[0.12em] uppercase transition-colors hover:border-primary hover:text-primary"
 			data-action="next"
 			type="button"
 		>
-			<span>Next</span>
+			<span>{labels.next}</span>
 			<span class="text-[10px]">▶</span>
 		</button>
 	</div>

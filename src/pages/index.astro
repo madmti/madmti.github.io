@@ -1,51 +1,16 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Sidebar from '@/components/Sidebar.astro';
-import Banner from '@/components/Banner.astro';
-import { getCollection, render } from 'astro:content';
-import { slugify } from '@/utils/slug';
-
-const fullContent = {
-	Biografia: await getCollection('biografia'),
-	Proyectos: await getCollection('proyectos'),
-	Blog: await getCollection('blog')
-};
-
-const onlyIndexInfo = Object.fromEntries(
-	Object.entries(fullContent).map(([name, sec]) => [name, sec.map((art) => art.data.title)])
-);
+const defaultLang = 'es';
 ---
 
-<Layout>
-	<div class="relative flex min-h-screen">
-		<Sidebar index={onlyIndexInfo} />
-
-		<main
-			class="h-screen flex-1 overflow-y-auto scroll-smooth px-12 py-10 max-sm:px-6 max-sm:pt-20"
-		>
-			<span id="top" class="scroll-mt-20"></span>
-			<Banner />
-			{
-				Object.entries(fullContent).map(async ([name, sec]) => (
-					<section id={slugify(name)} class="mx-auto mb-24 max-w-6xl scroll-mt-20">
-						<h1 class="mb-12 text-5xl font-bold text-primary">{name}</h1>
-
-						<div class="flex flex-col gap-20">
-							{sec.map(async (art) => {
-								const { Content } = await render(art);
-								return (
-									<section id={slugify(art.data.title)} class="scroll-mt-20">
-										<h2 class="mb-6 text-3xl font-medium">{art.data.title}</h2>
-										<div class="mdx-content">
-											<Content />
-										</div>
-									</section>
-								);
-							})}
-						</div>
-					</section>
-				))
-			}
-		</main>
-	</div>
-</Layout>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="refresh" content={`0; url=/${defaultLang}/`} />
+		<link rel="canonical" href={`/${defaultLang}/`} />
+		<meta name="viewport" content="width=device-width" />
+		<title>Matias Peñaloza</title>
+	</head>
+	<body>
+		<a href={`/${defaultLang}/`}>Continuar</a>
+	</body>
+</html>

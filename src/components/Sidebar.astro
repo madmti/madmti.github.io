@@ -5,9 +5,18 @@ interface Props {
 	index: {
 		[k: string]: string[];
 	};
+	lang: 'es' | 'en';
+	labels: {
+		navigation: string;
+		theme: string;
+		language: string;
+		dark: string;
+		light: string;
+	};
 }
 
-const { index } = Astro.props;
+const { index, lang, labels } = Astro.props;
+const basePath = `/${lang}`;
 ---
 
 <div id="sidebar-overlay" class="fixed inset-0 z-30 hidden bg-black/50" aria-hidden="true"></div>
@@ -15,7 +24,7 @@ const { index } = Astro.props;
 <div
 	class="absolute top-0 z-20 hidden w-full items-center justify-between border-b border-content/10 bg-base px-6 py-3 max-sm:flex"
 >
-	<a href="/#top" class="text-sm font-semibold tracking-wide text-primary uppercase">
+	<a href={`${basePath}/#top`} class="text-sm font-semibold tracking-wide text-primary uppercase">
 		MATIAS PEÑALOZA
 	</a>
 	<button
@@ -25,7 +34,7 @@ const { index } = Astro.props;
 		aria-controls="site-sidebar"
 		aria-expanded="false"
 	>
-		$ Navegacion
+		$ {labels.navigation}
 	</button>
 </div>
 
@@ -35,7 +44,7 @@ const { index } = Astro.props;
 	class="sticky top-0 flex h-screen w-72 shrink-0 flex-col overflow-y-auto border-r border-content/20 bg-base p-10 max-sm:fixed max-sm:inset-y-0 max-sm:left-0 max-sm:z-40 max-sm:transition-transform"
 >
 	<a
-		href="/#top"
+		href={`${basePath}/#top`}
 		class="mb-12 text-3xl leading-tight font-bold tracking-wide text-primary uppercase"
 	>
 		MATIAS PEÑALOZA
@@ -64,14 +73,14 @@ const { index } = Astro.props;
 
 	<div class="mt-auto flex flex-col gap-4 pt-10 text-sm">
 		<div class="flex items-center justify-between">
-			<span class="text-xs tracking-widest text-content/70 uppercase">Theme</span>
+			<span class="text-xs tracking-widest text-content/70 uppercase">{labels.theme}</span>
 			<div class="flex items-center gap-2">
 				<button
 					data-theme="dark"
 					type="button"
 					class="theme-option cursor-pointer tracking-wide uppercase"
 				>
-					dark
+					{labels.dark}
 				</button>
 				<span class="pointer-events-none text-content/50">|</span>
 				<button
@@ -79,29 +88,29 @@ const { index } = Astro.props;
 					type="button"
 					class="theme-option cursor-pointer tracking-wide uppercase"
 				>
-					light
+					{labels.light}
 				</button>
 			</div>
 		</div>
 
 		<div class="flex items-center justify-between">
-			<span class="text-xs tracking-widest text-content/70 uppercase">Languaje</span>
+			<span class="text-xs tracking-widest text-content/70 uppercase">{labels.language}</span>
 			<div class="flex items-center gap-2">
-				<button
-					data-lang="es"
-					type="button"
-					class="lang-option cursor-pointer tracking-wide uppercase"
+				<a
+					href="/es/"
+					data-lang-link="es"
+					class={`cursor-pointer tracking-wide uppercase ${lang === 'es' ? 'text-primary' : 'text-content/60'}`}
 				>
 					es
-				</button>
+				</a>
 				<span class="pointer-events-none text-content/50">|</span>
-				<button
-					data-lang="en"
-					type="button"
-					class="lang-option cursor-pointer tracking-wide uppercase"
+				<a
+					href="/en/"
+					data-lang-link="en"
+					class={`cursor-pointer tracking-wide uppercase ${lang === 'en' ? 'text-primary' : 'text-content/60'}`}
 				>
 					en
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -167,7 +176,6 @@ const { index } = Astro.props;
 
 	const body = document.body;
 	const themeOptions = document.querySelectorAll('button.theme-option');
-	const langOptions = document.querySelectorAll('button.lang-option');
 
 	const setActiveOption = (buttons: NodeListOf<Element>, value: string, attr: string) => {
 		buttons.forEach((button) => {
@@ -186,15 +194,8 @@ const { index } = Astro.props;
 		setActiveOption(themeOptions, theme, 'data-theme');
 	};
 
-	const applyLang = (lang: string) => {
-		setActiveOption(langOptions, lang, 'data-lang');
-	};
-
 	const savedTheme = localStorage.getItem('theme') || 'light';
 	applyTheme(savedTheme);
-
-	const savedLang = localStorage.getItem('lang') || 'es';
-	applyLang(savedLang);
 
 	themeOptions.forEach((button) => {
 		button.addEventListener('click', () => {
@@ -204,13 +205,18 @@ const { index } = Astro.props;
 		});
 	});
 
-	langOptions.forEach((button) => {
-		button.addEventListener('click', () => {
-			const nextLang = button.getAttribute('data-lang') || 'es';
-			applyLang(nextLang);
-			localStorage.setItem('lang', nextLang);
+	const updateLangLinks = () => {
+		const hash = window.location.hash || '';
+		const langLinks = document.querySelectorAll('[data-lang-link]');
+		langLinks.forEach((link) => {
+			const langValue = link.getAttribute('data-lang-link');
+			if (!langValue) return;
+			link.setAttribute('href', `/${langValue}/${hash}`);
 		});
-	});
+	};
+
+	updateLangLinks();
+	window.addEventListener('hashchange', updateLangLinks);
 
 	const sidebar = document.getElementById('site-sidebar');
 	const toggleButton = document.getElementById('sidebar-toggle');

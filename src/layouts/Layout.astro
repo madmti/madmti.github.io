@@ -1,8 +1,14 @@
 ---
 import '@/styles/global.css';
+
+interface Props {
+	lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
 ---
 
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

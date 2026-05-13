@@ -1,16 +1,25 @@
 ---
+interface BannerItem {
+	label: string;
+	value: string;
+	color: string;
+}
 
+interface Props {
+	items: ReadonlyArray<BannerItem>;
+	activityLog: string;
+	pulse: string;
+	lessActive: string;
+	moreActive: string;
+}
+
+const { items, activityLog, pulse, lessActive, moreActive } = Astro.props;
 ---
 
 <div class="mx-auto mb-16 flex w-full max-w-6xl flex-col gap-8 border-b border-content/10 pb-12">
 	<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
 		{
-			[
-				{ label: 'Status', value: 'ONLINE', color: 'text-primary' },
-				{ label: 'Focus', value: 'SOFTWARE & DATA', color: 'text-content' },
-				{ label: 'Location', value: 'CHILE - V REGION', color: 'text-content' },
-				{ label: 'Version', value: 'v3.0.0', color: 'text-content' }
-			].map((item) => (
+			items.map((item) => (
 				<div class="flex flex-col border border-content/10 bg-content/5 p-3">
 					<span class="mb-1 text-[10px] tracking-[0.2em] text-content/50 uppercase">
 						{item.label}
@@ -25,8 +34,8 @@
 
 	<div class="flex flex-col gap-3">
 		<div class="flex items-center justify-between">
-			<span class="font-mono text-xs tracking-widest text-content/40 uppercase">Activity Log</span>
-			<span class="font-mono text-[10px] text-primary/60">Pulse: Active</span>
+			<span class="font-mono text-xs tracking-widest text-content/40 uppercase">{activityLog}</span>
+			<span class="font-mono text-[10px] text-primary/60">{pulse}</span>
 		</div>
 
 		<div
@@ -40,14 +49,14 @@
 		<div
 			class="mt-1 flex items-center justify-between font-mono text-[9px] text-content/30 uppercase"
 		>
-			<span>Less active</span>
+			<span>{lessActive}</span>
 			<div class="flex gap-1">
 				<div class="h-2 w-2 bg-content/5"></div>
 				<div class="h-2 w-2 bg-primary/20"></div>
 				<div class="h-2 w-2 bg-primary/40"></div>
 				<div class="h-2 w-2 bg-primary/80"></div>
 			</div>
-			<span>More active</span>
+			<span>{moreActive}</span>
 		</div>
 	</div>
 </div>

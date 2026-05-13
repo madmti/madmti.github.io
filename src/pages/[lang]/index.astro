@@ -1,0 +1,75 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Banner from '@/components/Banner.astro';
+import { getCollection, render } from 'astro:content';
+import { slugify } from '@/utils/slug';
+import { getI18n, type Lang } from '@/utils/i18n';
+
+export async function getStaticPaths() {
+	return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+
+const lang = Astro.params.lang as Lang;
+const i18n = getI18n(lang);
+
+const byId = (a: { id: string }, b: { id: string }) => a.id.localeCompare(b.id);
+
+const biografia = (
+	await getCollection('biografia', (entry) => entry.id.startsWith(`${lang}/`))
+).sort(byId);
+const proyectos = (
+	await getCollection('proyectos', (entry) => entry.id.startsWith(`${lang}/`))
+).sort(byId);
+const blog = (await getCollection('blog', (entry) => entry.id.startsWith(`${lang}/`))).sort(byId);
+
+const sections = [
+	{ key: 'biografia', label: i18n.sections.biografia, items: biografia },
+	{ key: 'proyectos', label: i18n.sections.proyectos, items: proyectos },
+	{ key: 'blog', label: i18n.sections.blog, items: blog }
+];
+
+const onlyIndexInfo = Object.fromEntries(
+	sections.map((section) => [section.label, section.items.map((art) => art.data.title)])
+);
+---
+
+<Layout lang={lang}>
+	<div class="relative flex min-h-screen">
+		<Sidebar index={onlyIndexInfo} lang={lang} labels={i18n.sidebar} />
+
+		<main
+			class="h-screen flex-1 overflow-y-auto scroll-smooth px-12 py-10 max-sm:px-6 max-sm:pt-20"
+		>
+			<span id="top" class="scroll-mt-20"></span>
+			<Banner
+				items={i18n.banner.items}
+				activityLog={i18n.banner.activityLog}
+				pulse={i18n.banner.pulse}
+				lessActive={i18n.banner.lessActive}
+				moreActive={i18n.banner.moreActive}
+			/>
+			{
+				sections.map(async (section) => (
+					<section id={slugify(section.label)} class="mx-auto mb-24 max-w-6xl scroll-mt-20">
+						<h1 class="mb-12 text-5xl font-bold text-primary">{section.label}</h1>
+
+						<div class="flex flex-col gap-20">
+							{section.items.map(async (art) => {
+								const { Content } = await render(art);
+								return (
+									<section id={slugify(art.data.title)} class="scroll-mt-20">
+										<h2 class="mb-6 text-3xl font-medium">{art.data.title}</h2>
+										<div class="mdx-content">
+											<Content />
+										</div>
+									</section>
+								);
+							})}
+						</div>
+					</section>
+				))
+			}
+		</main>
+	</div>
+</Layout>
