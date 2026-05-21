@@ -21,12 +21,12 @@ const biografia = (
 const proyectos = (
 	await getCollection('proyectos', (entry) => entry.id.startsWith(`${lang}/`))
 ).sort(byId);
-const blog = (await getCollection('blog', (entry) => entry.id.startsWith(`${lang}/`))).sort(byId);
+const otros = (await getCollection('otros', (entry) => entry.id.startsWith(`${lang}/`))).sort(byId);
 
 const sections = [
 	{ key: 'biografia', label: i18n.sections.biografia, items: biografia },
 	{ key: 'proyectos', label: i18n.sections.proyectos, items: proyectos },
-	{ key: 'blog', label: i18n.sections.blog, items: blog }
+	{ key: 'otros', label: i18n.sections.otros, items: otros }
 ];
 
 const onlyIndexInfo = Object.fromEntries(

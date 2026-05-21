@@ -5,7 +5,7 @@ const i18n = {
 		sections: {
 			biografia: 'Biografia',
 			proyectos: 'Proyectos',
-			blog: 'Blog'
+			otros: 'Otros recursos'
 		},
 		sidebar: {
 			navigation: 'Navegación',
@@ -39,7 +39,7 @@ const i18n = {
 		sections: {
 			biografia: 'Biography',
 			proyectos: 'Projects',
-			blog: 'Blog'
+			otros: 'Other resources'
 		},
 		sidebar: {
 			navigation: 'Navigation',

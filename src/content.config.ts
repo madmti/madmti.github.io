@@ -16,8 +16,8 @@ const proyectos = defineCollection({
 	schema: contenidoSchema
 });
 
-const blog = defineCollection({
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+const otros = defineCollection({
+	loader: glob({ base: './src/content/otros', pattern: '**/*.{md,mdx}' }),
 	schema: contenidoSchema
 });
 
@@ -53,6 +53,6 @@ const academico = defineCollection({
 export const collections = {
 	biografia,
 	proyectos,
-	blog,
+	otros,
 	academico
 };
