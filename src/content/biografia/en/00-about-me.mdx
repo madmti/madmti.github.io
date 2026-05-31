@@ -2,6 +2,7 @@
 title: About Me
 ---
 import Image from "MDX/Image.astro";
+import Carousel from "MDX/Carousel.astro";
 
 Hi! I'm **Matias Peñaloza**, a senior **Computer Science & Engineering** student at Universidad Técnica Federico Santa María (USM).
 I am passionate about the **systematic, effective, and efficient construction of effective and efficient software**.
@@ -9,7 +10,23 @@ I firmly believe that modern software must be fast and resource-optimal.
 
 <br/>
 
-<Image />
+<Carousel
+    labels={{ prev: "PREV", next: "NEXT" }}
+    slides={[
+        {
+            url: "/madmti-1.JPG",
+            label: "SAN JOAQUIN: Colloquium 1 LyOSS",
+            alt: "Colloquium 1 Lyoss - San Joaquin",
+            position: "center"
+        },
+        {
+            url: "/madmti-2.JPG",
+            label: "SAN JOAQUIN: Colloquium 1 LyOSS",
+            alt: "Colloquium 1 Lyoss - San Joaquin",
+            offsetY: "-10%"
+        },
+    ]}
+/>
 
 ## My Approach & Experience
 

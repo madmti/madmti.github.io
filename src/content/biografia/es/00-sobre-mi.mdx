@@ -2,6 +2,7 @@
 title: Sobre mí
 ---
 import Image from "MDX/Image.astro";
+import Carousel from "MDX/Carousel.astro";
 
 ¡Hola! soy **Matias Peñaloza**, estudiante de 4to año de _Ingenieria Civil Informatica_ en la Universidad Técnica Federico Santa María (USM).
 Me apasiona la _construccion sistematica, eficaz y eficiente de software eficaz y eficiente_.
@@ -9,7 +10,23 @@ Creo firmemente que el software moderno debe ser rápido y optimo en el uso de r
 
 <br/>
 
-<Image />
+<Carousel
+    labels={{ prev: "PREV", next: "NEXT" }}
+    slides={[
+        {
+            url: "/madmti-1.JPG",
+            label: "SAN JOAQUIN: COLOQUIO 1 LyOSS",
+            alt: "Coloquio 1 Lyoss - San Joaquin",
+            position: "center"
+        },
+        {
+            url: "/madmti-2.JPG",
+            label: "SAN JOAQUIN: COLOQUIO 1 LyOSS",
+            alt: "Coloquio 1 Lyoss - San Joaquin",
+            offsetY: "-10%"
+        },
+    ]}
+/>
 
 ## Mi Enfoque y Experiencia
 
