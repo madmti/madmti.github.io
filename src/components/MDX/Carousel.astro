@@ -13,6 +13,8 @@ interface Slide {
 		| 'top-right'
 		| 'bottom-left'
 		| 'bottom-right';
+	offsetX?: string; // e.g. "10px" | "-1.5rem" | "5%"
+	offsetY?: string; // e.g. "8px" | "-0.5rem" | "2%"
 }
 
 interface CarouselLabels {
@@ -44,6 +46,18 @@ const positionClass = {
 	'bottom-left': 'object-left-bottom',
 	'bottom-right': 'object-right-bottom'
 };
+
+const basePosition = {
+	top: { x: '50%', y: '0%' },
+	center: { x: '50%', y: '50%' },
+	bottom: { x: '50%', y: '100%' },
+	left: { x: '0%', y: '50%' },
+	right: { x: '100%', y: '50%' },
+	'top-left': { x: '0%', y: '0%' },
+	'top-right': { x: '100%', y: '0%' },
+	'bottom-left': { x: '0%', y: '100%' },
+	'bottom-right': { x: '100%', y: '100%' }
+};
 ---
 
 <div id={carouselId} class="flex flex-col gap-4">
@@ -71,6 +85,7 @@ const positionClass = {
 					<img
 						src={slide.url}
 						alt={slide.alt}
+						style={`object-position: calc(${basePosition[slide.position ?? 'center'].x} + ${slide.offsetX ?? '0px'}) calc(${basePosition[slide.position ?? 'center'].y} + ${slide.offsetY ?? '0px'});`}
 						class={`h-full w-full object-cover ${positionClass[slide.position ?? 'center']} opacity-90 transition-opacity duration-150 hover:opacity-100`}
 					/>
 					<div class="absolute right-4 bottom-4 bg-base/80 px-2 py-1 backdrop-blur-sm">
