@@ -16,6 +16,13 @@ const { lang = 'es' } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Matias Peñaloza</title>
+		{!import.meta.env.DEV && (
+			<script
+				defer
+				src="https://cloud.umami.is/script.js"
+				data-website-id="a4b14eab-c263-4eaa-80be-32d7a7857cb8"
+			/>
+		)}
 	</head>
 	<body>
 		<slot />
