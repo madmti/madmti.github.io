@@ -12,37 +12,43 @@ import Carousel from "MDX/Carousel.astro";
     labels={{ prev: "PREV", next: "NEXT" }}
     slides={[
         {
-            url: "/ramo-libre-1.png",
+            url: "/ramolibre-1.png",
             label: "RAMO LIBRE: OVERVIEW",
             alt: "Overview - RamoLibre",
             position: "top"
         },
         {
-            url: "/ramo-libre-2.png",
+            url: "/ramolibre-2.png",
             label: "RAMO LIBRE: SCHEDULES",
             alt: "Schedules - RamoLibre",
             position: "top"
         },
         {
-            url: "/ramo-libre-3.png",
+            url: "/ramolibre-3.png",
             label: "RAMO LIBRE: GRADES",
             alt: "Grades - RamoLibre",
             position: "top"
         },
         {
-            url: "/ramo-libre-4.png",
+            url: "/ramolibre-4.png",
             label: "RAMO LIBRE: CALENDAR",
             alt: "Calendar - RamoLibre",
             position: "top"
         },
         {
-            url: "/ramo-libre-5.png",
-            label: "RAMO LIBRE: COURSES",
-            alt: "Courses - RamoLibre",
+            url: "/ramolibre-5.png",
+            label: "RAMO LIBRE: TODOS",
+            alt: "To do's - RamoLibre",
             position: "top"
         },
         {
-            url: "/ramo-libre-6.png",
+            url: "/ramolibre-6.png",
+            label: "RAMO LIBRE: SEMESTERS",
+            alt: "Semesters - RamoLibre",
+            position: "top"
+        },
+        {
+            url: "/ramolibre-7.png",
             label: "RAMO LIBRE: CONFIGURATION",
             alt: "Configuration - RamoLibre",
             position: "top"
@@ -51,10 +57,10 @@ import Carousel from "MDX/Carousel.astro";
 />
 
 ### Key Features
-- **Calculation Engine**: Integrates [GradeSolver](https://github.com/madmti/GradeSolver) as a *WASM* module, enabling grade projections and approval rule evaluations without blocking the UI.
+- **Calculation Engine**: Integrates [Solver](https://github.com/Ramo-Libre/Solver) as a *WASM* module, enabling grade projections and approval rule evaluations without blocking the UI.
 - **Offline-First Philosophy**: Implemented as an installable *PWA*, it allows data visualization and editing without an internet connection, automatically syncing once connectivity is restored.
 - **High-Performance Architecture**: Developed with *Svelte 5* and *TypeScript*, the app guarantees load times under 1s on 4G networks for immediate interactivity.
-- **Open Source**: The project is open source and features a detailed [Wiki](https://github.com/madmti/Ramo-Libre-Web/wiki) documenting the entire creation process —including context diagrams, domain models, and functional requirements— to facilitate community contributions.
+- **Open Source**: The project is open source and features a detailed [Wiki](https://github.com/Ramo-Libre/Web/wiki) documenting the entire creation process —including context diagrams, domain models, and functional requirements— to facilitate community contributions.
 
 ### Upcoming Milestones
 The next major milestone is user experience validation through **[LabUX](https://labux.inf.utfsm.cl/) testing**, ensuring the tool's evolution directly addresses the real needs of the student body.
