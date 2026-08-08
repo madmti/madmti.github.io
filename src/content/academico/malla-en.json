@@ -272,7 +272,7 @@
 					"nombre": "Information and Financial Mathematics",
 					"creditos": 5,
 					"categoria": "Industry",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "LIBRE-IV",
@@ -291,35 +291,35 @@
 					"nombre": "Software Engineering",
 					"creditos": 5,
 					"categoria": "Software Engineering",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-256",
 					"nombre": "Computer Networks",
 					"creditos": 5,
 					"categoria": "ICT Infrastructure",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-285",
 					"nombre": "Scientific Computing",
 					"creditos": 5,
 					"categoria": "Numerical Analysis",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-293",
 					"nombre": "Operations Research",
 					"creditos": 5,
 					"categoria": "Information Decision Systems",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "LIBRE-V",
 					"nombre": "Signal and Image Processing",
 					"creditos": 5,
 					"categoria": "Numerical Analysis",
-					"estado": "cursando"
+					"estado": "aprobado"
 				}
 			]
 		},
@@ -331,42 +331,42 @@
 					"nombre": "User Interface Design",
 					"creditos": 5,
 					"categoria": "Software Engineering",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-343",
 					"nombre": "Distributed Systems",
 					"creditos": 5,
 					"categoria": "ICT Infrastructure",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
-					"sigla": "INF-301",
-					"nombre": "CS Elective I",
+					"sigla": "ELECTIVO INF I",
+					"nombre": "Introduction to Data Science",
 					"creditos": 5,
-					"categoria": "CS Electives",
-					"estado": "pendiente"
+					"categoria": "Numerical Analysis",
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-295",
 					"nombre": "Artificial Intelligence",
 					"creditos": 5,
 					"categoria": "Numerical Analysis",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-266",
 					"nombre": "Management Systems",
 					"creditos": 5,
 					"categoria": "Information Decision Systems",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
-					"sigla": "INF-6",
-					"nombre": "Free Elective VI",
+					"sigla": "LIBRE VI",
+					"nombre": "Table Tennis",
 					"creditos": 2,
 					"categoria": "Humanities, electives, and sports",
-					"estado": "pendiente"
+					"estado": "cursando"
 				}
 			]
 		},

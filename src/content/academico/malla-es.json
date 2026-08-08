@@ -272,7 +272,7 @@
 					"nombre": "Información y Matemáticas Financieras",
 					"creditos": 5,
 					"categoria": "Industrias",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "LIBRE-IV",
@@ -291,35 +291,35 @@
 					"nombre": "Ingeniería de Software",
 					"creditos": 5,
 					"categoria": "Ingeniería de Software",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-256",
 					"nombre": "Redes de Computadores",
 					"creditos": 5,
 					"categoria": "Infraestructura TIC",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-285",
 					"nombre": "Computación Científica",
 					"creditos": 5,
 					"categoria": "Análisis Numérico",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "INF-293",
 					"nombre": "Investigación de Operaciones",
 					"creditos": 5,
 					"categoria": "Sistemas de decisión informática",
-					"estado": "cursando"
+					"estado": "aprobado"
 				},
 				{
 					"sigla": "LIBRE-V",
 					"nombre": "Procesamiento Señales e Imagenes",
 					"creditos": 5,
 					"categoria": "Análisis Numérico",
-					"estado": "cursando"
+					"estado": "aprobado"
 				}
 			]
 		},
@@ -331,42 +331,42 @@
 					"nombre": "Diseño Interfaces Usuarias",
 					"creditos": 5,
 					"categoria": "Ingeniería de Software",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-343",
 					"nombre": "Sistemas Distribuidos",
 					"creditos": 5,
 					"categoria": "Infraestructura TIC",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
-					"sigla": "INF-301",
-					"nombre": "Electivo Informática I",
+					"sigla": "ELECTIVO INF I",
+					"nombre": "Introducción a la Ciencia de Datos",
 					"creditos": 5,
-					"categoria": "Electivos Informática",
-					"estado": "pendiente"
+					"categoria": "Análisis Numérico",
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-295",
 					"nombre": "Inteligencia Artificial",
 					"creditos": 5,
 					"categoria": "Análisis Numérico",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
 					"sigla": "INF-266",
 					"nombre": "Sistemas de Gestión",
 					"creditos": 5,
 					"categoria": "Sistemas de decisión informática",
-					"estado": "pendiente"
+					"estado": "cursando"
 				},
 				{
-					"sigla": "INF-6",
-					"nombre": "Libre VI",
+					"sigla": "LIBRE VI",
+					"nombre": "Tenis de Mesa",
 					"creditos": 2,
 					"categoria": "Humanistas, libres y deportes",
-					"estado": "pendiente"
+					"estado": "cursando"
 				}
 			]
 		},
