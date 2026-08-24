@@ -1,12 +1,39 @@
 ---
 title: Taller de Git
 ---
+import Carousel from "MDX/Carousel.astro";
 
 Durante el _segundo semestre de 2026_, dicto el taller **Fundamentos y Arquitectura de Git** en la universidad: un recorrido que parte por la historia de los sistemas de control de versiones y llega hasta los _internals_ de Git — el modelo de objetos, el DAG, los packfiles y las herramientas de flujo avanzado.
 
 <br />
 
 El taller se organiza en _15 cápsulas_ (12 clases + 3 extras) con su material teórico y ejercicios prácticos. Comienza el **13 de agosto** y se imparte **dos veces por semana**, de forma presencial en el [_Labcomp_](https://www.labcomp.cl/) de la universidad, con transmisión en vivo simultánea.
+
+<br />
+
+<Carousel
+    labels={{ prev: "PREV", next: "NEXT" }}
+    slides={[
+        {
+            url: "/taller-1.jpg",
+            label: "LABCOMP: Participantes - Taller de Git",
+            alt: "Participantes Taller de Git - LabComp",
+            position: "center"
+        },
+        {
+            url: "/taller-2.jpg",
+            label: "LABCOMP: Clase 1 - Taller de Git",
+            alt: "Clase 1 Taller de Git - LabComp",
+            position: "bottom"
+        },
+        {
+            url: "/taller-3.jpg",
+            label: "LABCOMP: Clase 1 - Taller de Git",
+            alt: "Clase 1 Taller de Git - LabComp",
+            position: "center"
+        },
+    ]}
+/>
 
 ### Contenido
 - **Fundamentos**: historia de los VCS, snapshots, áreas de trabajo y el flujo básico (_init, add, commit, log, diff, restore_).
